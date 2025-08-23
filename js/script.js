@@ -7,17 +7,19 @@ document.addEventListener("DOMContentLoaded", () => {
     navLinks.classList.toggle("active");
   });
 
-  // Animaciones de entrada para imágenes
+  // Animación de imágenes con IntersectionObserver
   const images = document.querySelectorAll(".hero-images img");
 
-  window.addEventListener("scroll", () => {
-    images.forEach(img => {
-      const rect = img.getBoundingClientRect();
-      if (rect.top < window.innerHeight - 100) {
-        img.classList.add("visible");
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target); // se deja de observar una vez visible
       }
     });
-  });
+  }, { threshold: 0.2 });
+
+  images.forEach(img => observer.observe(img));
 });
 
 
