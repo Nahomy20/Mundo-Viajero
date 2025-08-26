@@ -5,13 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MUNDO VIAJERO NICARAGUA</title>
   <link rel="stylesheet" href="css/style.css">
-  <!-- IMPORTANTE: que apunte al archivo correcto -->
   <script defer src="js/script.js"></script>
+
   <!-- Fuente elegante solo para h1 -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="img/favi.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
+
+  <!-- 🎥 Video de fondo -->
+  <video autoplay muted loop playsinline id="bg-video">
+     <source src="img/wh.mp4" type="video/mp4">
+    Tu navegador no soporta videos en HTML5.
+  </video>
 
   <!-- HEADER -->
   <header>
@@ -24,7 +31,7 @@
         <li><a href="galeria.html">Galería</a></li>
         <li><a href="servicios.html">Servicios</a></li>
         <li><a href="about.html">Acerca de</a></li>
-          <li><a href="contáctanos.html">Contáctanos</a></li>
+        <li><a href="contáctanos.html">Contáctanos</a></li>
         <li><a href="opiniones.html">Opiniones</a></li>
       </ul>
       <div class="menu-toggle">&#9776;</div>
@@ -33,35 +40,53 @@
 
   <!-- HERO -->
   <section class="hero">
-    <h1 class="fade-in">Bienvenidos a Mundo Viajero</h1>
+    <h1 class="fade-in hero-title">Bienvenidos a Mundo Viajero</h1>
+  </section>
 
-    <div class="hero-content">
-      <!-- Texto -->
-      <div class="hero-text">
-        <p class="fade-in">
+  <div class="hero-content">
+    <!-- Texto -->
+    <div class="hero-text">
+      <!-- Botón -->
+      <button id="toggleBtn" class="btn-ver-mas">Ver más</button>
+
+      <!-- Cuadro con texto -->
+      <div id="extraText" class="hidden text-box">
+        <p>
           Mundo Viajero Nicaragua es un espacio dedicado a compartir la magia, cultura y belleza de nuestro país. 
           Aquí encontrarás información sobre los destinos más impresionantes de Nicaragua: 
           desde playas paradisíacas, volcanes y lagos, hasta pueblos llenos de historia y tradición.
         </p>
-      </div>
-
-      <!-- Collage de imágenes -->
-      <div class="hero-images">
-        <img src="img/travel.jpeg" alt="Viajero con maleta">
-        <img src="img/carro.jpeg" alt="Viaje en carretera">
+        <img src="img/5.jpeg" alt="Viajero con maleta" class="mini-foto">
       </div>
     </div>
-  </section>
+
+    <!-- Collage de imágenes -->
+    <div class="hero-images">
+      <img src="img/travel.jpeg" alt="Viajero con maleta">
+      <img src="img/carro.jpeg" alt="Viaje en carretera">
+    </div>
+  </div>
 
   <!-- LOGIN -->
   <section class="login">
-    <h1>INICIAR SESIÓN</h1>
-    <form id="loginForm">
-      <input type="text" placeholder="NOMBRE:" required>
-      <input type="text" placeholder="APELLIDO:" required>
-      <input type="email" placeholder="CORREO ELECTRÓNICO:" required>
-      <button type="submit">ACCEDER</button>
-    </form>
+    <div class="login-box">
+      <h1>Iniciar Sesión</h1>
+      <form id="loginForm">
+        <div class="input-group">
+          <i class="fa-solid fa-id-card"></i>
+          <input type="text" placeholder="Carnet" required>
+        </div>
+        <div class="input-group">
+          <i class="fa-solid fa-lock"></i>
+          <input type="password" placeholder="Contraseña" required>
+        </div>
+        <div class="input-group">
+          <i class="fa-solid fa-user"></i>
+          <input type="text" placeholder="Nombre Completo" required>
+        </div>
+        <button type="submit">Acceder</button>
+      </form>
+    </div>
   </section>
 
   <!-- FOOTER -->

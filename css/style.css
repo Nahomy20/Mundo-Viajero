@@ -2,33 +2,89 @@
 /* RESET */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
+
+/* Video de fondo */
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Hace que cubra toda la pantalla */
+  z-index: -1;       /* Lo envía al fondo */
+}
+/* Texto encima */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.8;
-  background-color: #387b74;
-  color: #161616;
+  color: #131212; /* ⚠️ si el fondo es oscuro, puedes usar blanco */
   font-size: 16px;
+  margin: 0;
+  padding: 0;
+  text-align: center; /* centra el texto */
+  
+  /* 🔥 Fondo pastel */
+  background: #fdfdfd; /* blanco suave, puedes cambiarlo */
 }
+
+/* 🖼️ Cuadro blanco para resaltar texto */
+.text-box {
+  display: inline-block; /* se ajusta al tamaño del contenido */
+  background: #ffffff; /* fondo blanco */
+  padding: 20px 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* sombra elegante */
+  margin: 20px auto;
+  color: #131212;
+  max-width: 800px; /* que no se extienda demasiado */
+}
+
 
 /* TÍTULOS */
 h1 {
   text-align: center;
   font-family: 'Playfair Display', serif !important;
   font-style: italic;
-  font-size: 2.8rem;
+  font-size: 3.8rem;
   font-weight: 600;
   margin-bottom: 20px;
-  color: #1a1a1a;
+  color: #d6c808; /* relleno blanco */
+  -webkit-text-stroke: 2px #000000; /* borde negro */
 }
+
+/* Solo afecta al h1 del HERO */
+.hero-title {
+  font-size: 8.8rem;
+  font-weight: 600;
+  line-height: 1.1;
+  text-align: center;
+}
+
+/* 📱 Responsive: que no se vea gigante en pantallas pequeñas */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 3rem;
+  }
+}
+
+
 
 /* NAVBAR */
 header {
-  background: url("../img/cascada\ edit.jpg") center/cover no-repeat;
+  background-color: rgba(0, 0, 0, 0.4); /* negro transparente */
+  backdrop-filter: blur(6px); /* efecto vidrio esmerilado */
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 1000;
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  transition: background-color 0.3s ease;
 }
 
 .navbar {
@@ -37,7 +93,7 @@ header {
   align-items: center;
   padding: 10px 8%;
   height: 120px;
-  background: rgba(0,0,0,0.5);
+  background: transparent; /* transparente, usa el fondo del header */
 }
 
 .logo {
@@ -45,7 +101,7 @@ header {
 }
 
 .logo img {
-  max-height: 120px;
+  max-height: 125px;
   width: auto;
 }
 
@@ -84,28 +140,103 @@ header {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
-  gap: 70px;
+  justify-content: center; /* 🔥 centrado en vez de space-between */
+  gap: 40px;
+  text-align: center; /* 🔥 centra texto por defecto */
 }
 
 .hero-text {
   flex: 1;
   min-width: 300px;
+  text-align: center; /* 🔥 centrado el bloque completo */
+}
+
+.hero-text h1 {
+  margin-bottom: 20px;
 }
 
 .hero-text p {
   font-size: 18px;
   line-height: 1.6;
   max-width: 650px;
-  text-align: left;
+  margin: 0 auto; /* 🔥 centra el párrafo dentro del bloque */
 }
 
-/* 🎨 COLLAGE INTERACTIVO */
+
+/* Botón Ver más */
+.btn-ver-mas {
+  background: #008080;  /* Verde azulado */
+  color: #fff;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+  margin: 15px auto;   /* 👉 centrado automático */
+  display: block;      /* 👉 ocupa toda la línea para centrarse */
+  max-width: 220px;    /* 👉 nunca será demasiado ancho */
+  width: 80%;          /* 👉 se adapta al ancho en pantallas pequeñas */
+  text-align: center;
+}
+
+/* Hover efecto */
+.btn-ver-mas:hover {
+  background: #006666; /* tono más oscuro */
+  transform: scale(1.05);
+}
+
+/* 📱 Responsive ajustes */
+@media (max-width: 768px) {
+  .btn-ver-mas {
+    font-size: 0.95rem;
+    padding: 10px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn-ver-mas {
+    font-size: 0.9rem;
+    padding: 8px 18px;
+    width: 90%;   /* 👉 casi todo el ancho en celulares */
+  }
+}
+
+/* Cuadro del texto */
+.text-box {
+  background: #ffffff;       /* Fondo blanco sólido */
+  color: #1a1a1a;            /* Texto oscuro */
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* sombra elegante */
+  max-width: 700px;          /* ancho máximo */
+  margin: 0 auto;            /* centrado */
+  font-size: 1.1rem;
+  line-height: 1.8;
+  text-align: justify;
+}
+
+/* Animación al mostrar/ocultar */
+.hidden {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.8s ease, opacity 0.8s ease;
+}
+
+.visible-text {
+  max-height: 600px;
+  opacity: 1;
+  transition: max-height 0.8s ease, opacity 0.8s ease;
+}
+
+
+/* 🎨 COLLAGE INTERACTIVO CENTRADO */
 .hero-images {
   position: relative;
-  width: 280px;
+  width: 280px;   /* mantiene el ancho del collage */
   height: 250px;
-  margin-left: auto;
+  margin: 20px auto; /* centra el bloque */
 }
 
 .hero-images img {
@@ -138,64 +269,89 @@ header {
   transform: scale(1.05) rotate(0deg);
 }
 
+
 /* LOGIN */
 .login {
-  background: linear-gradient(135deg, #0f172a, #1e293b);
-  color: #fff;
-  padding: 60px 20px;
-  text-align: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #22d3ee, #aa439c);
+  min-height: 100vh;
 }
 
-.login h1 {
-  color: #fff;
-  margin: 0 0 40px 11%;
-  text-align: left;
+.login-box {
+  background: #fff;
+  padding: 40px 30px;
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
 }
 
-/* Inputs + botones base */
-input, textarea, button {
+.login-box h1 {
+  margin-bottom: 25px;
+  font-size: 2rem;
+  color: #333;
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 700;
+}
+
+/* INPUTS CON ICONOS */
+.input-group {
+  position: relative;
+  margin: 12px 0;
+}
+
+.input-group i {
+  position: absolute;
+  top: 50%;
+  left: 14px;
+  transform: translateY(-50%);
+  color: #22d3ee;
   font-size: 1rem;
-  border-radius: 6px;
-  padding: 12px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 14px 18px 14px 45px; /* espacio para el icono */
+  border: 2px solid #22d3ee;
+  border-radius: 10px;
+  font-size: 1rem;
+  background: #f9f9f9;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-group input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 8px rgba(59,130,246,0.4);
   outline: none;
 }
 
-/* Login form */
-.login form {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 15px 30px;
-  max-width: 600px;
-  margin-left: 11%;
+.input-group input::placeholder {
+  color: #666;
 }
 
-.login input {
-  border: 2px solid #22d3ee;
-  background: transparent;
-  color: #22d3ee;
-}
-
-.login input::placeholder {
-  color: #22d3ee;
-}
-
+/* BOTÓN */
 .login button {
-  grid-column: 2;
-  grid-row: 2;
-  align-self: center;
-  background: pink;
-  color: #000;
+  margin-top: 20px;
+  width: 100%;
+  background: #22d3ee;
+  color: #fff;
   border: none;
-  border-radius: 30px;
-  padding: 12px 30px;
+  border-radius: 12px;
+  padding: 14px;
+  font-size: 1.1rem;
   cursor: pointer;
-  transition: 0.3s;
+  transition: background 0.3s, transform 0.2s ease;
 }
 
 .login button:hover {
-  background: #fca5a5;
-  transform: scale(1.05);
+  background: #0ea5e9;
+  transform: translateY(-2px);
 }
+
 
 /* FOOTER */
 footer {
@@ -418,4 +574,14 @@ button {
 
 button:hover {
   background-color: #005fa3;
+}
+
+/* Imagen tipo carnet */
+.mini-foto {
+  width: 120px;     /* ancho pequeño (tipo carnet) */
+  height: auto;     /* ajusta proporción automáticamente */
+  border-radius: 8px; /* esquinas redondeadas */
+  display: block;   /* para que se pueda centrar */
+  margin: 15px auto; /* centrado debajo del texto */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* sombra ligera */
 }
