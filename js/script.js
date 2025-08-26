@@ -1,27 +1,40 @@
-document.addEventListener("DOMContentLoaded", () => {
-  // Toggle menú hamburguesa
-  const menuToggle = document.querySelector(".menu-toggle");
-  const navLinks = document.querySelector(".nav-links");
+// ========================
+// TOGGLE MENÚ HAMBURGUESA
+// ========================
+const menuToggle = document.querySelector(".menu-toggle");
+const navLinks = document.querySelector(".nav-links");
 
+if (menuToggle && navLinks) {
   menuToggle.addEventListener("click", () => {
     navLinks.classList.toggle("active");
   });
+}
 
-  // Animación de imágenes con IntersectionObserver
-  const images = document.querySelectorAll(".hero-images img");
+// ========================
+// ANIMACIONES DE IMÁGENES
+// ========================
+const images = document.querySelectorAll(".hero-images img");
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-        observer.unobserve(entry.target); // se deja de observar una vez visible
-      }
-    });
-  }, { threshold: 0.2 });
-
-  images.forEach(img => observer.observe(img));
+window.addEventListener("scroll", () => {
+  images.forEach(img => {
+    const rect = img.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 100) {
+      img.classList.add("visible");
+    }
+  });
 });
 
+// ========================
+// LOGIN - ALERTA + REDIRECCIÓN
+// ========================
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("loginForm");
 
-
-
+  if (form) {
+    form.addEventListener("submit", (e) => {
+      e.preventDefault(); // Evita recarga
+      alert("✅ Has accedido exitosamente.");
+      window.location.href = "galeria.html"; // Redirige
+    });
+  }
+});

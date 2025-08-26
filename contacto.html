@@ -6,7 +6,7 @@
   <title>Contacto - Mundo Viajero Nicaragua</title>
   <link rel="stylesheet" href="css/style.css">
   <script defer src="js/main.js"></script>
-    <link rel="icon" type="image/png" href="img/favi.png">
+  <link rel="icon" type="image/png" href="img/favi.png">
 </head>
 <body>
 
@@ -30,15 +30,37 @@
     <h1 class="fade-in">Estamos Ubicados</h1>
     <p class="fade-in">Encuéntranos en el corazón de Nicaragua. Estamos listos para recibirte y ayudarte a planear tu próxima aventura.</p>
 
-    <div class="map-container fade-in">
-      <!-- Aquí puedes insertar un mapa de Google -->
-      <iframe 
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1984295.2462366645!2d-87.5!3d12.8654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDUyJzE1LjQiTiA4N8KwMzAnMjAuMCJX!5e0!3m2!1ses!2sni!4v1692548976684!5m2!1ses!2sni" 
-        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy">
-      </iframe>
-    </div>
-     <i>Siguenos en nuestras redes sociales y contactanos</i>
-    <div class="social-icons">
+
+    <!-- FORMULARIO DE CONTACTO -->
+  <section class="contact-form">
+    <h2>Contáctanos</h2>
+    <form action="mailto:merceditalopez659@gmail.com" method="POST" enctype="text/plain">
+      <label for="nombre">Nombre:</label><br>
+      <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required><br><br>
+
+      <label for="email">Correo Electrónico:</label><br>
+      <input type="email" id="email" name="email" placeholder="Tu correo" required><br><br>
+
+      <label for="mensaje">Mensaje o Comentario:</label><br>
+      <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea><br><br>
+
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+
+
+    <div align="center">
+  <div class="map-container fade-in">
+ 
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1984295.2462366645!2d-87.5!3d12.8654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDUyJzE1LjQiTiA4N8KwMzAnMjAuMCJX!5e0!3m2!1ses!2sni!4v1692548976684!5m2!1ses!2sni" 
+      width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy">
+    </iframe>
+  </div>
+
+  <p><i>Síguenos en nuestras redes sociales y contáctanos</i></p>
+
+  <div>
     <a href="https://www.facebook.com" target="_blank">
       <img src="img/face.png" alt="Facebook" width="40">
     </a>
@@ -48,21 +70,15 @@
     <a href="https://wa.me/50588888888" target="_blank">
       <img src="img/Whatsa.png" alt="WhatsApp" width="40">
     </a>
-     <!-- Apartado de contacto por correo -->
-    <div class="contact-email fade-in" style="margin-top:20px; text-align:center;">
-      <a href="nahoguevarar@gmail.com" style="text-decoration:none; color:#333; font-size:18px;">
-        <img src="img/gmail_new_logo_icon_159149.png" alt="Correo" width="40" style="vertical-align:middle; margin-right:8px;">
-        info@mundoviajero.com
-      </a>
-    </div>
-    
   </div>
- 
+</div>
+
   </section>
+
 
   <footer>
     <p align="right">&nbsp;© 2025 Gracias por preferirnos atrévete a viajar con nosotros&nbsp;</p>
-    <p>Terminos - Todos los derechos reservados</p>
+    <p>Términos - Todos los derechos reservados</p>
   </footer>
 
 </body>

@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mundo Viajero Nicaragua</title>
   <link rel="stylesheet" href="css/style.css">
-  <script defer src="js/main.js"></script>
+  <!-- IMPORTANTE: que apunte al archivo correcto -->
+  <script defer src="js/script.js"></script>
   <!-- Fuente elegante solo para h1 -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="img/favi.png">
@@ -53,25 +54,22 @@
 
   <!-- LOGIN -->
   <section class="login">
-  <h1>INICIAR SESIÓN</h1>
-  <form>
-    <input type="text" placeholder="NOMBRE:" required>
-    <input type="text" placeholder="APELLIDO:" required>
-    <input type="email" placeholder="CORREO ELECTRÓNICO:" required>
-    <button type="submit">ACCEDER</button>
-  </form>
+    <h1>INICIAR SESIÓN</h1>
+    <form id="loginForm">
+      <input type="text" placeholder="NOMBRE:" required>
+      <input type="text" placeholder="APELLIDO:" required>
+      <input type="email" placeholder="CORREO ELECTRÓNICO:" required>
+      <button type="submit">ACCEDER</button>
+    </form>
+  </section>
 
-
-
-<!-- FOOTER -->
-<footer>
-  <p align="right">&nbsp;© 2025 Gracias por preferirnos atrévete a viajar con nosotros&nbsp;</p>
-  <div style="text-align:center; margin-right:100px;">
-    Terminos - Todos los derechos reservados
-  </div>
-</footer>
-
-
+  <!-- FOOTER -->
+  <footer>
+    <p align="right">&nbsp;© 2025 Gracias por preferirnos atrévete a viajar con nosotros&nbsp;</p>
+    <div style="text-align:center; margin-right:100px;">
+      Términos - Todos los derechos reservados
+    </div>
+  </footer>
 
 </body>
 </html>
