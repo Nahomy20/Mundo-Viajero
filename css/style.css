@@ -419,3 +419,9 @@ button {
 button:hover {
   background-color: #005fa3;
 }
+
+.nav-links a.active {
+  color: #20e6e6;
+  font-weight: bold;
+  border-bottom: 2px solid #06cf8c;
+}
