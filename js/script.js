@@ -37,6 +37,27 @@ document.addEventListener("DOMContentLoaded", () => {
       window.location.href = "galeria.html"; // Redirige
     });
   }
+
+  // ========================
+  // BOTÓN "VER MÁS"
+  // ========================
+const toggleBtn = document.getElementById("toggleBtn");
+const extraText = document.getElementById("extraText");
+
+if (toggleBtn && extraText) {
+  toggleBtn.addEventListener("click", () => {
+    if (extraText.classList.contains("hidden")) {
+      extraText.classList.remove("hidden");
+      extraText.classList.add("visible-text");
+      toggleBtn.textContent = "Ver menos";
+    } else {
+      extraText.classList.remove("visible-text");
+      extraText.classList.add("hidden");
+      toggleBtn.textContent = "Ver más"; 
+
+      }
+    });
+  }
 });
 const form = document.getElementById("opinionForm");
   const listaOpiniones = document.getElementById("listaOpiniones");
