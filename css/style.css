@@ -471,3 +471,49 @@ footer {
   .hero-images img { width: 120px; height: 150px; }
   .hero-images img:last-child { top: 20px; left: 40px; }
 }
+
+ /* ⭐ Estilos básicos para el opinion */
+    .opiniones-container {
+      max-width: 800px;
+      margin: 40px auto;
+      text-align: center;
+    }
+    .stars {
+      display: flex;
+      justify-content: center;
+      margin: 10px 0;
+    }
+    .stars input {
+      display: none;
+    }
+    .stars label {
+      font-size: 30px;
+      color: #ccc;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+    .stars input:checked ~ label {
+      color: gold;
+    }
+    .stars label:hover,
+    .stars label:hover ~ label {
+      color: gold;
+    }
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 15px 0;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #0077cc;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #005fa3;
+    }
