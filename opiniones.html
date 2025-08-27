@@ -13,6 +13,12 @@
 </head>
 <body class="page-opiniones">
 
+    <!-- 🎥 Video de fondo -->
+  <video autoplay muted loop playsinline id="bg-video">
+     <source src="img/San Juan del Sur.mp4" type="video/mp4">
+    Tu navegador no soporta videos en HTML5.
+  </video>
+
   <!-- NAVBAR -->
   <header>
     <nav class="navbar">
@@ -32,29 +38,32 @@
   </header>
 
   <!-- CONTENIDO -->
-  <section class="hero">
-    <h1 class="fade-in">⭐ Opiniones de Nuestros Viajeros</h1>
-    <p class="fade-in">Comparte tu experiencia con Mundo Viajero y ayúdanos a mejorar.</p>
+ <section class="hero">
+  
+<!-- Opción 2 -->
+<div class="opiniones-container glass">
+    <h1>⭐ Opiniones de Nuestros Viajeros</h1>
+    <p>Comparte tu experiencia con Mundo Viajero y ayúdanos a mejorar.</p>
     
-    <div class="opiniones-container">
-  <form id="opinionForm">
-    <div class="stars">
-      <input type="radio" id="star5" name="rating" value="5"><label for="star5">★</label>
-      <input type="radio" id="star4" name="rating" value="4"><label for="star4">★</label>
-      <input type="radio" id="star3" name="rating" value="3"><label for="star3">★</label>
-      <input type="radio" id="star2" name="rating" value="2"><label for="star2">★</label>
-      <input type="radio" id="star1" name="rating" value="1"><label for="star1">★</label>
-    </div>
-    <textarea id="comentario" placeholder="Escribe tu opinión aquí..." rows="4"></textarea>
-    <br>
-    <button type="submit">Enviar Opinión</button>
-  </form>
-</div>
+    <form id="opinionForm">
+      <div class="stars">
+        <input type="radio" id="star5" name="rating" value="5"><label for="star5">★</label>
+        <input type="radio" id="star4" name="rating" value="4"><label for="star4">★</label>
+        <input type="radio" id="star3" name="rating" value="3"><label for="star3">★</label>
+        <input type="radio" id="star2" name="rating" value="2"><label for="star2">★</label>
+        <input type="radio" id="star1" name="rating" value="1"><label for="star1">★</label>
+      </div>
+      
+      <textarea id="comentario" placeholder="Escribe tu opinión aquí..." rows="4"></textarea>
+      <br>
+      <button type="submit">Enviar Opinión</button>
+    </form>
 
-<!-- 📌 Aquí aparecerán las opiniones -->
-<div id="listaOpiniones"></div>
-    </div>
-  </section>
+    <!-- 📌 Aquí aparecerán las opiniones -->
+    <div id="listaOpiniones"></div>
+  </div>
+</section>
+
 
   <!-- FOOTER -->
   <footer>

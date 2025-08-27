@@ -5,16 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>⭐ Contacto - Mundo Viajero Nicaragua</title>
   <link rel="stylesheet" href="css/style.css">
-  <!-- IMPORTANTE: que apunte al archivo correcto -->
- <script defer src="js/script.js"></script>
-  <!-- Fuente elegante solo para h1 -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
+  <script defer src="js/script.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="img/favi.png">
 </head>
 <body class="page-contacto">
 
   <!-- NAVBAR -->
-   <header>
+  <header>
     <nav class="navbar">
       <div class="logo">
         <img src="img/logo.png" alt="Mundo Viajero Logo">
@@ -24,7 +22,7 @@
         <li><a href="galeria.html">Galería</a></li>
         <li><a href="servicios.html">Servicios</a></li>
         <li><a href="about.html">Acerca de</a></li>
-        <li><a href="contáctanos.html" class="active">Contáctanos</a></li>
+        <li><a href="contacto.html" class="active">Contáctanos</a></li>
         <li><a href="opiniones.html">Opiniones</a></li>
       </ul>
       <div class="menu-toggle">&#9776;</div>
@@ -32,60 +30,35 @@
   </header>
 
   <!-- HERO -->
-  <section class="hero">
-    <h1 class="fade-in">Estamos Ubicados</h1>
-    <p class="fade-in">
-      Encuéntranos en el corazón de Nicaragua. Estamos listos para recibirte y ayudarte a planear tu próxima aventura.
-    </p>
+  <section class="hero fade-in">
   </section>
-
   <!-- FORMULARIO DE CONTACTO -->
-  <section class="contact-form">
-    <h2>Contáctanos</h2>
-    <form action="mailto:merceditalopez659@gmail.com" method="POST" enctype="text/plain">
-      <label for="nombre">Nombre:</label><br>
-      <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required><br><br>
+  <section class="contact-section">
+    <div class="contact-card">
+      <h2>Envíanos un mensaje ✉️</h2>
+      <form class="contact-form">
+         <p>Queremos escucharte. Escríbenos y estaremos felices de ayudarte en tu próxima aventura.</p>
+        <input type="text" name="nombre" placeholder="Tu nombre" required>
+        <input type="email" name="email" placeholder="Tu correo" required>
+        <textarea name="mensaje" placeholder="Escribe tu mensaje aquí..." rows="5" required></textarea>
+        <button onclick="window.location.href='mailto:merceditalopez659@gmail.com'">Enviar</button>
 
-      <label for="email">Correo Electrónico:</label><br>
-      <input type="email" id="email" name="email" placeholder="Tu correo" required><br><br>
-
-      <label for="mensaje">Mensaje o Comentario:</label><br>
-      <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea><br><br>
-
-      <button type="submit">Enviar</button>
-    </form>
-  </section>
-
-  <!-- MAPA Y REDES -->
-  <section class="map-section">
-    <div class="map-container fade-in" align="center">
-      <iframe 
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1984295.2462366645!2d-87.5!3d12.8654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDUyJzE1LjQiTiA4N8KwMzAnMjAuMCJX!5e0!3m2!1ses!2sni!4v1692548976684!5m2!1ses!2sni" 
-        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy">
-      </iframe>
+      </form>
     </div>
 
-    <div align="center">
-      <p><i>Síguenos en nuestras redes sociales y contáctanos</i></p>
-      <div class="social-icons">
-        <a href="https://www.facebook.com" target="_blank">
-          <img src="img/face.png" alt="Facebook" width="40">
-        </a>
-        <a href="https://www.instagram.com" target="_blank">
-          <img src="img/insta.png" alt="Instagram" width="40">
-        </a>
-        <a href="https://wa.me/50588888888" target="_blank">
-          <img src="img/Whatsa.png" alt="WhatsApp" width="40">
-        </a>
-      </div>
-    </div>
-  </section>
+ <!-- 🌍 SECCIÓN UBICACIÓN -->
+<section class="ubicacion">
+  <h2>🌍 Nuestra Ubicación</h2>
+  <div class="map-container">
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3930.09743199822!2d-86.251389!3d12.136389!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f73f8f99d2ff9db%3A0xa6c2d9adf7a2af73!2sManagua%2C%20Nicaragua!5e0!3m2!1ses!2sni!4v1692973700000!5m2!1ses!2sni" 
+      allowfullscreen="" 
+      loading="lazy" 
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+</section>
 
-  <!-- FOOTER -->
-  <footer>
-    <p align="right">&nbsp;© 2025 Gracias por preferirnos atrévete a viajar con nosotros&nbsp;</p>
-    <p>Términos - Todos los derechos reservados</p>
-  </footer>
 
 </body>
 </html>
