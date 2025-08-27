@@ -562,7 +562,6 @@ textarea {
   border-radius: 10px;
   border: 1px solid #ccc;
 }
-
 button {
   background-color: #0077cc;
   color: white;
@@ -571,11 +570,9 @@ button {
   border-radius: 8px;
   cursor: pointer;
 }
-
 button:hover {
   background-color: #005fa3;
 }
-
 /* Imagen tipo carnet */
 .mini-foto {
   width: 120px;     /* ancho pequeño (tipo carnet) */
@@ -590,4 +587,25 @@ button:hover {
   color: #16eeee;
   font-weight: bold;
   border-bottom: 2px solid #08b279;
+}
+/* === FONDO EXCLUSIVO PARA SERVICIOS === */
+body.page-servicios {
+  background: linear-gradient(rgba(255, 255, 255, 0.846), rgba(255, 255, 255, 0.738)), 
+              url('../img/fondo-servicios.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+}
+body.page-contacto {
+    background: linear-gradient(rgba(255, 255, 255, 0.513), rgba(255, 255, 255, 0.533)), 
+                url('../img/Volcan-San-Cristobal-Nicaragua.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+body.page-opiniones {
+    background: linear-gradient(rgba(255, 255, 255, 0.809), rgba(164, 159, 159, 0.87)), 
+                url('../img/paisaje.jpg');
+    background-size: cover;
+    background-position: center;
 }
