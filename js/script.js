@@ -87,3 +87,20 @@ const form = document.getElementById("opinionForm");
     // Reiniciar formulario
     form.reset();
   });
+  
+  //login
+  document.getElementById("loginForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const carnet = document.getElementById("carnet").value;
+  const password = document.getElementById("password").value;
+
+  // Simulación de login (puedes cambiarlo a tus credenciales)
+  if (carnet === "1234" && password === "1234") {
+    localStorage.setItem("logueado", "true");
+    alert("✅ Inicio de sesión correcto");
+    window.location.href = "index.html"; // Redirige al inicio
+  } else {
+    alert("❌ Credenciales incorrectas");
+  }
+});
