@@ -59,9 +59,9 @@ header {
 }
 
 /* logo */
-.logo { margin-left: 2%; }
+.logo { margin-left:0%; }
 .logo img {
-  max-height: 120px;       /* <-- conservado */
+  max-height: 95px;       /* <-- conservado */
   width: auto;
   height: auto;
   object-fit: contain;
@@ -142,18 +142,35 @@ h1 {
 }
 
 /* hero text box (unificado y conservando estilos) */
+/* hero text box (unificado y conservando estilos) */
 .text-box {
   display: block;
   background: #ffffff;
-  padding: 20px 30px;
+  padding: 25px 35px; /* un poco más de espacio interno */
   border-radius: 15px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-  margin: 20px auto;
+  margin: 30px auto; /* más separación externa y centrado */
   color: #131212;
   max-width: 800px;
+  width: 90%; /* ocupa casi todo el ancho en pantallas pequeñas */
   font-size: 1.05rem;
   line-height: 1.8;
   text-align: justify;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+  .text-box {
+    padding: 20px 25px;
+    width: 95%;
+  }
+}
+
+@media (max-width: 480px) {
+  .text-box {
+    padding: 15px 20px;
+    width: 98%;
+  }
 }
 
 /* clase hidden/visible para el "ver más" */
@@ -199,6 +216,10 @@ h1 {
   width: 80%;
   text-align: center;
 }
+
+
+
+
 .btn-ver-mas:hover {
   background: #006666;
   transform: scale(1.05);
@@ -447,6 +468,97 @@ h1 {
   background:#fff; padding:40px 30px; border-radius:18px; box-shadow:0 10px 25px rgba(0,0,0,0.2);
   max-width:400px; width:100%; text-align:center;
 }
+
+/* ==========================================================
+   CARNET / FORMATO AUTOMÁTICO
+   ========================================================== */
+.carnet-container {
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  text-align: center;
+}
+
+.carnet-container h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #0a5c50;
+  font-weight: 700;
+}
+
+.carnet-container input {
+  width: 100%;
+  padding: 14px 20px;
+  font-size: 1.1rem;
+  border-radius: 12px;
+  border: 2px solid #e0e0e0;
+  margin-bottom: 18px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.carnet-container input:focus {
+  border-color: #0a5c50;
+  box-shadow: 0 0 10px rgba(10,92,80,0.25);
+  outline: none;
+  background: #fff;
+}
+
+.carnet-container button {
+  background: linear-gradient(135deg, #0a5c50, #2dd4bf);
+  color: #fff;
+  border: none;
+  padding: 14px 30px;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.carnet-container button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+/* Mensaje de resultado */
+.carnet-result {
+  margin-top: 25px;
+  font-size: 1.2rem;
+  color: #333;
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .carnet-container {
+    margin: 30px 15px;
+    padding: 20px;
+  }
+
+  .carnet-container h2 {
+    font-size: 1.5rem;
+  }
+
+  .carnet-container input {
+    font-size: 1rem;
+    padding: 12px 15px;
+  }
+
+  .carnet-container button {
+    font-size: 0.95rem;
+    padding: 12px 25px;
+  }
+
+  .carnet-result {
+    font-size: 1rem;
+  }
+}
+
+
 .login-box h1 { margin-bottom:25px; font-size:2rem; color:#333; font-weight:700; }
 
 /* inputs con icono */
@@ -867,3 +979,4 @@ body.page-servicios .hero p {
   max-width: 800px;
   margin: 0 auto;
 }
+

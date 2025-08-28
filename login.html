@@ -7,6 +7,90 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" type="image/png" href="img/favi.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    /* Contenedor de input con icono */
+    .input-group {
+      position: relative;
+      margin-bottom: 30px;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 10px 10px 10px 35px; /* espacio para icono */
+      box-sizing: border-box;
+    }
+
+    /* Iconos dentro de input */
+    .input-group i {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none;
+      color: #555;
+    }
+
+    /* Mensajes de error */
+    .error {
+      position: absolute;
+      bottom: -20px;
+      left: 0;
+      color: red;
+      font-size: 0.85em;
+      display: none;
+    }
+
+    /* Mensajes de login global */
+    .form-error, .form-success {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      text-align: center;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .form-error {
+      background-color: #f8d7da;
+      color: #721c24;
+    }
+
+    .form-success {
+      background-color: #d4edda;
+      color: #155724;
+    }
+
+    /* Botón */
+    button {
+      width: 100%;
+      padding: 10px;
+      font-size: 1em;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    /* Caja login */
+    .login-box {
+      max-width: 400px;
+      margin: 50px auto;
+      padding: 30px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      background-color: #fff;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+  </style>
 </head>
 <body>
 
@@ -17,7 +101,6 @@
         <img src="img/logo.png" alt="Mundo Viajero Logo">
       </div>
       <ul class="nav-links">
-        <li><a href="index.html">Inicio</a></li>
         <li><a href="login.html" class="active">Iniciar Sesión</a></li>
       </ul>
     </nav>
@@ -27,15 +110,54 @@
   <section class="login">
     <div class="login-box">
       <h1>Iniciar Sesión</h1>
-      <form id="loginForm">
+      <form id="loginForm" novalidate>
+
+        <!-- NOMBRE DE USUARIO -->
+        <div class="input-group">
+          <i class="fa-solid fa-user"></i>
+          <input 
+            type="text" 
+            id="usuario" 
+            placeholder="Nombre de Usuario" 
+            required>
+          <span class="error" id="usuarioError">Ingrese su nombre de usuario</span>
+        </div>
+        
+        <!-- CORREO -->
+        <div class="input-group">
+          <i class="fa-solid fa-envelope"></i>
+          <input 
+            type="email" 
+            id="correo" 
+            placeholder="Correo Electrónico" 
+            required>
+          <span class="error" id="correoError">Ingrese un correo válido con @</span>
+        </div>
+
+        <!-- CARNET -->
         <div class="input-group">
           <i class="fa-solid fa-id-card"></i>
-          <input type="text" id="carnet" placeholder="Carnet" required>
+          <input 
+            type="text" 
+            id="carnet" 
+            placeholder="Carnet (##-#####-#)" 
+            maxlength="10"
+            required>
+          <span class="error" id="carnetError">El carnet debe tener exactamente 8 dígitos numéricos</span>
         </div>
+
+        <!-- CONTRASEÑA -->
         <div class="input-group">
           <i class="fa-solid fa-lock"></i>
-          <input type="password" id="password" placeholder="Contraseña" required>
+          <input 
+            type="password" 
+            id="password" 
+            placeholder="Contraseña" 
+            required>
+          <span class="error" id="passwordError">La contraseña debe tener mínimo 5 caracteres, incluyendo letras y números</span>
         </div>
+
+        <!-- BOTÓN -->
         <button type="submit">Acceder</button>
       </form>
     </div>
@@ -46,6 +168,6 @@
     <p>© 2025 Mundo Viajero - Todos los derechos reservados</p>
   </footer>
 
-  <script src="js/login.js"></script>
+  <script src="js/script.js"></script>
 </body>
 </html>
