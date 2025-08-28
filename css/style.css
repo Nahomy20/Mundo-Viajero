@@ -748,3 +748,122 @@ footer {
     height: 350px;
   }
 }
+/* ==========================================================
+   SECCIÓN DE SERVICIOS - CENTRADO
+   ========================================================== */
+.services {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.service-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 1100px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.service-card h3 {
+  font-size: 1.8rem;
+  color: #0a5c50;
+  margin-bottom: 15px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.service-card h3 i {
+  color: #0ea5e9;
+  font-size: 1.5rem;
+}
+
+.service-card > p {
+  color: #555;
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+  line-height: 1.6;
+}
+
+/* Ajustes para las galerías dentro de servicios */
+.service-card .gallery-container {
+  margin: 20px 0 0 0;
+  max-width: 1000px;
+}
+
+/* Efectos de fade-in para las tarjetas */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.service-card:nth-child(1) { animation-delay: 0.1s; }
+.service-card:nth-child(2) { animation-delay: 0.2s; }
+.service-card:nth-child(3) { animation-delay: 0.3s; }
+.service-card:nth-child(4) { animation-delay: 0.4s; }
+.service-card:nth-child(5) { animation-delay: 0.5s; }
+
+/* Responsive para servicios */
+@media (max-width: 768px) {
+  .services {
+    padding: 0 15px;
+    gap: 30px;
+  }
+  
+  .service-card {
+    padding: 20px;
+    border-radius: 15px;
+  }
+  
+  .service-card h3 {
+    font-size: 1.5rem;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .service-card > p {
+    font-size: 1rem;
+  }
+}
+
+/* Ajuste específico para el hero de servicios */
+body.page-servicios .hero {
+  text-align: center;
+  padding: 160px 10% 40px;
+}
+
+body.page-servicios .hero h1 {
+  margin-bottom: 15px;
+}
+
+body.page-servicios .hero h3 {
+  color: #0a5c50;
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+body.page-servicios .hero p {
+  color: #555;
+  font-size: 1.1rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
