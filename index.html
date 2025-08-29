@@ -52,7 +52,8 @@
 
   <!-- HERO -->
   <section class="hero">
-    <h1 class="fade-in hero-title">Bienvenidos a Mundo Viajero</h1>
+<h1 class="fade-in hero-title">✈️ Bienvenidos a Mundo Viajero 🏝️</h1>
+
   </section>
 
   <div class="hero-content">
@@ -72,92 +73,278 @@
       </div>
     </div>
  
-    <!-- Collage de imágenes -->
-    <div class="hero-images">
-      <img src="img/travel.jpeg" alt="Viajero con maleta">
-      <img src="img/carro.jpeg" alt="Viaje en carretera">
-    </div>
-  </div>
+<!-- Collage de imágenes -->
+<div class="hero-images">
+  <img src="img/travel.jpeg" alt="Viajero con maleta" class="zoom-img">
+  <img src="img/carro.jpeg" alt="Viaje en carretera" class="zoom-img">
+</div>
 
- <!-- 💸 OFERTAS Y PROMOCIONES -->
+<!-- 🌌 Modal para ver imágenes en mediano -->
+<div id="imgModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="modalImg">
+</div>
+
+<!-- 💸 OFERTAS Y PROMOCIONES -->
 <section class="seccion">
   <h2>💸 Ofertas y Promociones</h2>
   <p>Aprovecha nuestros paquetes turísticos especiales con descuentos únicos.</p>
   <div class="cards">
+    
+    <!-- Paquete Granada -->
     <div class="card">
+      <img src="img/granada.jpg" alt="Paquete Granada" class="card-img clickable-img">
       <h3>Paquete Granada</h3>
       <p>Tour por la ciudad + Isletas en lancha.</p>
-      <span>Desde $99</span>
+      <span>Desde $35</span>
     </div>
+
+    <!-- San Juan del Sur -->
     <div class="card">
+      <img src="img/sur.webp" alt="San Juan del Sur" class="card-img clickable-img">
       <h3>San Juan del Sur</h3>
       <p>3 días de playa + transporte incluido.</p>
-      <span>Desde $120</span>
+      <span>Desde $100</span>
     </div>
+
+    <!-- Volcán Masaya -->
     <div class="card">
+      <img src="img/masaya.jpeg" alt="Volcán Masaya" class="card-img clickable-img">
       <h3>Volcán Masaya</h3>
       <p>Excursión nocturna al cráter activo.</p>
       <span>Desde $45</span>
     </div>
+
   </div>
 </section>
 
-<!-- ❓ PREGUNTAS FRECUENTES -->
-<section class="seccion">
+<!-- 🌌 Modal para ver imágenes en mediano -->
+<div id="imgModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="modalImg">
+</div>
+
+<!-- ❓ PREGUNTAS FRECUENTES ESTILIZADO -->
+<section class="seccion faq">
   <h2>❓ Preguntas Frecuentes</h2>
-  <details>
-    <summary>¿Cómo reservo un tour?</summary>
-    <p>Puedes reservar directamente en línea o contactarnos vía WhatsApp.</p>
-  </details>
-  <details>
-    <summary>¿Aceptan pagos en dólares?</summary>
-    <p>Sí, aceptamos tanto córdobas como dólares.</p>
-  </details>
-  <details>
-    <summary>¿Los tours incluyen seguro?</summary>
-    <p>Sí, todos los paquetes cuentan con seguro de viaje.</p>
-  </details>
+
+  <div class="faq-item">
+    <button class="faq-question">
+      <span>¿Cómo puedo reservar un tour?</span>
+      <span class="arrow">+</span>
+    </button>
+    <div class="faq-answer">
+      <p>Puedes reservar fácilmente a través de nuestro sitio web completando el formulario, o contactándonos directamente vía WhatsApp o correo electrónico. Confirmamos tu reserva en menos de 24 horas.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">
+      <span>¿Aceptan pagos en dólares o córdobas?</span>
+      <span class="arrow">+</span>
+    </button>
+    <div class="faq-answer">
+      <p>Sí, aceptamos ambas monedas. Puedes pagar en efectivo, transferencia bancaria o mediante plataformas de pago seguro en línea.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">
+      <span>¿Los tours incluyen seguro de viaje?</span>
+      <span class="arrow">+</span>
+    </button>
+    <div class="faq-answer">
+      <p>Sí, todos nuestros paquetes incluyen seguro de viaje que cubre accidentes y emergencias durante el tour.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">
+      <span>¿Se requiere experiencia previa para los tours de aventura?</span>
+      <span class="arrow">+</span>
+    </button>
+    <div class="faq-answer">
+      <p>No es necesario. Todos nuestros tours de aventura cuentan con guías certificados para garantizar tu seguridad y disfrute.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">
+      <span>¿Puedo cancelar o cambiar mi reserva?</span>
+      <span class="arrow">+</span>
+    </button>
+    <div class="faq-answer">
+      <p>Sí, ofrecemos políticas de cancelación flexibles. Revisa los términos específicos al momento de reservar para conocer plazos y condiciones.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">
+      <span>¿Ofrecen tours personalizados?</span>
+      <span class="arrow">+</span>
+    </button>
+    <div class="faq-answer">
+      <p>Sí, podemos diseñar experiencias a medida según tus intereses, duración y presupuesto. Contáctanos para planificar un tour personalizado único.</p>
+    </div>
+  </div>
+
 </section>
 
+<!-- ESTILOS CSS -->
+<style>
+.faq {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 0 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.faq h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2em;
+  color: #0d3b66;
+}
+
+.faq-item {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.faq-question {
+  width: 100%;
+  background-color: #f7f9fc;
+  border: none;
+  padding: 15px 20px;
+  text-align: left;
+  cursor: pointer;
+  font-size: 1.1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.faq-question:hover {
+  background-color: #e1eff6;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  padding: 0 20px;
+  background-color: #ffffff;
+}
+
+.faq-answer p {
+  margin: 15px 0;
+}
+
+.faq-question.active + .faq-answer {
+  max-height: 200px; /* Ajusta según contenido */
+  padding: 15px 20px;
+}
+
+.arrow {
+  font-weight: bold;
+  transition: transform 0.3s ease;
+}
+
+.faq-question.active .arrow {
+  transform: rotate(45deg);
+  color: #0d3b66;
+}
+</style>
+
+<!-- SCRIPT JS -->
+<script>
+const faqButtons = document.querySelectorAll(".faq-question");
+
+faqButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    button.classList.toggle("active");
+  });
+});
+</script>
+
 <!-- 🛍️ TIENDA DE SOUVENIRS -->
-<section class="seccion">
+<section class="seccion tienda">
   <h2>🛍️ Tienda de Souvenirs</h2>
   <p>Llévate un recuerdo único de tu viaje por Nicaragua.</p>
+
   <div class="cards">
     <div class="card">
-      <a href="servicios.html">
-      <img src="img/souvenir1.png" alt="Camiseta"></a>
-      <p>Camisetas con diseños exclusivos</p>
+      <img src="img/souvenir1.png" alt="Camiseta">
+      <h3>Camisetas con diseños exclusivos</h3>
+      <p class="precio">$15.00</p>
+      <button class="btn-anadir" onclick="añadirAlCarrito('Camiseta', 15)">Añadir al carrito</button>
     </div>
+
     <div class="card">
-      <a href="servicios.html">
-      <img src="img/souvenir2.png" alt="Artesanía"></a>
-      <p>Artesanías hechas a mano</p>
+      <img src="img/souvenir2.png" alt="Artesanía">
+      <h3>Artesanías hechas a mano</h3>
+      <p class="precio">$25.00</p>
+      <button class="btn-anadir" onclick="añadirAlCarrito('Artesanía', 25)">Añadir al carrito</button>
     </div>
+
     <div class="card">
-      <a href="servicios.html">
-      <img src="img/souvenir3.png" alt="Taza"></a>
-      <p>Tazas personalizadas</p>
+      <img src="img/souvenir3.png" alt="Taza">
+      <h3>Tazas personalizadas</h3>
+      <p class="precio">$10.00</p>
+      <button class="btn-anadir" onclick="añadirAlCarrito('Taza', 10)">Añadir al carrito</button>
     </div>
+  </div>
+
+  <div class="carrito">
+    <h3>🛒 Carrito</h3>
+    <ul id="listaCarrito"></ul>
+    <p>Total: $<span id="totalCarrito">0.00</span></p>
+    <button onclick="enviarFactura()">📧 Enviar Factura</button>
   </div>
 </section>
 
 <!-- 🎉 EVENTOS Y FESTIVALES -->
-<section class="seccion">
+<section class="seccion eventos">
   <h2>🎉 Eventos y Festivales en Nicaragua</h2>
-  <ul>
-    <li><strong>Septiembre:</strong> Fiestas Patrias – Desfiles y actos cívicos por la Independencia.</li>
-    <li><strong>Octubre:</strong> Fiesta de San Jerónimo – Masaya, con bailes folclóricos y procesiones.</li>
-    <li><strong>Noviembre:</strong> Fiesta de San Carlos – Río San Juan, con celebraciones patronales y actividades culturales.</li>
-    <li><strong>Diciembre:</strong> Navidad en Nicaragua – Tradición de luces, nacimientos y fiestas familiares.</li>
-  </ul>
+  <p>Descubre las tradiciones y festividades más importantes de nuestro país.</p>
+
+  <div class="cards">
+    <div class="card">
+      <h3>Septiembre</h3>
+      <p><strong>Fiestas Patrias</strong> – Desfiles y actos cívicos por la Independencia.</p>
+      <a href="https://wa.me/50586184641?text=Quiero%20reservar,%20dame%20informacion,%20muchas%20gracias." target="_blank" class="btn-reservar">Reservar Tour</a>
+    </div>
+
+    <div class="card">
+      <h3>Octubre</h3>
+      <p><strong>Fiesta de San Jerónimo</strong> – Masaya, con bailes folclóricos y procesiones.</p>
+      <a href="https://wa.me/50586184641?text=Quiero%20reservar,%20dame%20informacion,%20muchas%20gracias." target="_blank" class="btn-reservar">Reservar Tour</a>
+    </div>
+
+    <div class="card">
+      <h3>Noviembre</h3>
+      <p><strong>Fiesta de San Carlos</strong> – Río San Juan, con celebraciones patronales y actividades culturales.</p>
+      <a href="https://wa.me/50586184641?text=Quiero%20reservar,%20dame%20informacion,%20muchas%20gracias." target="_blank" class="btn-reservar">Reservar Tour</a>
+    </div>
+
+    <div class="card">
+      <h3>Diciembre</h3>
+      <p><strong>Navidad en Nicaragua</strong> – Tradición de luces, nacimientos y fiestas familiares.</p>
+      <a href="https://wa.me/50586184641?text=Quiero%20reservar,%20dame%20informacion,%20muchas%20gracias." target="_blank" class="btn-reservar">Reservar Tour</a>
+    </div>
+  </div>
 </section>
 
 
-  <!-- FOOTER -->
-  <footer>
-    <i>Siguenos en nuestras redes sociales y contactanos</i>
-    <div class="social-icons">
+<!-- FOOTER -->
+<footer>
+  <i>Síguenos en nuestras redes sociales y contáctanos</i>
+  
+  <div class="social-icons">
     <a href="https://www.facebook.com" target="_blank">
       <img src="img/face.png" alt="Facebook" width="40">
     </a>
@@ -168,11 +355,7 @@
       <img src="img/Whatsa.png" alt="WhatsApp" width="40">
     </a>
   </div>
-    <p align="center">&nbsp;© 2025 Gracias por preferirnos atrévete a viajar con nosotros&nbsp;</p>
-    <div style="text-align:center; margin: right 50px;">
-      Términos - Todos los derechos reservados
-    </div>
-  </footer>
 
-</body>
-</html>
+  <p>© 2025 Gracias por preferirnos, atrévete a viajar con nosotros</p>
+  <div>Términos - Todos los derechos reservados</div>
+</footer>

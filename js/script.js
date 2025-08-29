@@ -256,3 +256,46 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 });
+
+
+ // ========================
+  // MODAL DE IMÁGENES (ZOOM)
+  // ========================
+  const modal = document.getElementById("imgModal");
+  const modalImg = document.getElementById("modalImg");
+  const closeBtn = document.querySelector(".close");
+
+  document.querySelectorAll(".clickable-img, .zoom-img").forEach(img => {
+    img.addEventListener("click", () => {
+      modal.style.display = "flex";
+      modalImg.src = img.src;
+    });
+  });
+
+  closeBtn.onclick = () => modal.style.display = "none";
+  modal.onclick = e => { if (e.target === modal) modal.style.display = "none"; };
+
+
+   // ========================
+  // CARRITO DE COMPRAS
+  // ========================
+  window.carrito = [];
+  window.total = 0;
+
+  window.añadirAlCarrito = function(nombre, precio) {
+    carrito.push({ nombre, precio });
+    total += precio;
+
+    const lista = document.getElementById('listaCarrito');
+    const totalSpan = document.getElementById('totalCarrito');
+
+    lista.innerHTML = '';
+    carrito.forEach(item => {
+      const li = document.createElement('li');
+      li.textContent = `${item.nombre} - $${item.precio.toFixed(2)}`;
+      lista.appendChild(li);
+    });
+
+    totalSpan.textContent = total.toFixed(2);
+  };
+
