@@ -155,7 +155,7 @@ h1 {
   text-align: center;
   font-family: 'Playfair Display', serif;
   font-style: italic;
-  font-size: 1.8rem;
+  font-size: 3.8rem;
   font-weight: 600;
   margin-bottom: 20px;
   color: #d6c808;
@@ -183,6 +183,37 @@ h1 {
   gap: 40px;
   text-align: center;
 }
+
+/* HERO */
+.hero {
+  padding: 120px 8% 50px;
+  text-align: center;
+}
+
+/* Contenedor del título con icono */
+.hero-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px; /* espacio entre icono y texto */
+  font-family: 'Playfair Display', serif;
+}
+
+/* Texto principal */
+.hero-title h1 {
+  font-size: clamp(1.8rem, 4.5vw, 4rem);
+  font-style: italic;
+  font-weight: 700;
+  color: #d6c808;
+  -webkit-text-stroke: 1.5px #000;
+  margin: 0;
+}
+
+/* Icono */
+.hero-title .icon {
+  font-size: clamp(2rem, 5vw, 4.5rem);
+}
+
 
 /* hero text box (unificado y conservando estilos) */
 /* hero text box (unificado y conservando estilos) */
@@ -1437,3 +1468,49 @@ body.page-servicios .hero p {
   .hero p { font-size: 0.9rem; }
   .about-logo img { max-width: 150px; }
 }
+
+
+/* Estilo profesional para la sección "Acerca de" */
+.about-section {
+  background: rgba(255, 255, 255, 0.95); /* Fondo blanco semi-transparente */
+  padding: 40px 50px;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+  max-width: 1000px;
+  margin: 40px auto;
+  line-height: 1.8;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+}
+
+.about-section h2 {
+  font-family: 'Playfair Display', serif; /* Mantener elegante */
+  font-size: 2rem;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #ff8c00;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.about-section p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+.about-section ul {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+.about-section ul li {
+  margin-bottom: 10px;
+}
+
+
