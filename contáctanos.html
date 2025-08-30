@@ -1,504 +1,204 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contacto - Mundo Viajero Nicaragua</title>
-  <link rel="stylesheet" href="css/style.css">
-  <script defer src="js/script.js"></script>
-  <link rel="icon" type="image/png" href="img/favi.png">
-  <!-- Agregar Font Awesome para iconos -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <style>
-    /* Estilos específicos para la página de contacto */
-    .thank-you-message {
-      display: none;
-      background: #d4edda;
-      color: #155724;
-      padding: 15px;
-      border-radius: 8px;
-      margin: 20px 0;
-      border: 1px solid #c3e6cb;
-      text-align: center;
-    }
-    
-    .form-loading {
-      display: none;
-      text-align: center;
-      padding: 20px;
-    }
-    
-    .spinner {
-      border: 4px solid #f3f3f3;
-      border-top: 4px solid #0a5c50;
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      animation: spin 1s linear infinite;
-      margin: 0 auto;
-    }
-    
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-    
-    .contact-page {
-      padding: 20px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      margin: 40px 0;
-    }
-
-    .contact-info {
-      background: rgba(255, 255, 255, 0.95);
-      padding: 30px;
-      border-radius: 18px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-      backdrop-filter: blur(10px);
-    }
-
-    .info-item {
-      display: flex;
-      align-items: center;
-      margin-bottom: 25px;
-    }
-
-    .info-item i {
-      font-size: 24px;
-      color: #0a5c50;
-      margin-right: 15px;
-      width: 30px;
-      text-align: center;
-    }
-
-    .info-item h4 {
-      margin: 0;
-      color: #333;
-      font-size: 18px;
-      font-weight: 600;
-    }
-
-    .info-item p {
-      margin: 5px 0 0 0;
-      color: #666;
-      line-height: 1.5;
-    }
-
-    .business-hours {
-      margin-top: 30px;
-      padding-top: 20px;
-      border-top: 2px solid #e0e0e0;
-    }
-
-    .business-hours h3 {
-      color: #0a5c50;
-      margin-bottom: 15px;
-      font-size: 1.3rem;
-    }
-
-    .hour-row {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 8px;
-      padding: 5px 0;
-      border-bottom: 1px solid #f0f0f0;
-    }
-
-    .hour-row:last-child {
-      border-bottom: none;
-    }
-
-    .emergency-contact {
-      background: linear-gradient(135deg, #0a5c50, #128b7b);
-      color: white;
-      padding: 25px;
-      border-radius: 15px;
-      text-align: center;
-      margin: 30px 0 0 0;
-    }
-
-    .emergency-contact h3 {
-      margin-top: 0;
-      font-size: 1.4rem;
-    }
-
-    .emergency-contact .phone {
-      font-size: 24px;
-      font-weight: bold;
-      margin: 10px 0;
-      display: block;
-    }
-
-    .faq-contact {
-      background: #f8f9fa;
-      padding: 40px 20px;
-      margin: 40px 0;
-      text-align: center;
-      border-radius: 18px;
-    }
-
-    .faq-contact h2 {
-      color: #0a5c50;
-      margin-bottom: 30px;
-      font-size: 2rem;
-    }
-
-    .social-section {
-      text-align: center;
-      margin: 40px 0;
-      padding: 30px;
-      background: rgba(255, 255, 255, 0.9);
-      border-radius: 18px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    }
-
-    .social-links {
-      display: flex;
-      justify-content: center;
-      gap: 25px;
-      margin: 25px 0;
-    }
-
-    .social-links a {
-      display: inline-block;
-      transition: transform 0.3s ease;
-    }
-
-    .social-links a:hover {
-      transform: scale(1.15);
-    }
-
-    .btn-whatsapp {
-      display: inline-block;
-      background: #25D366;
-      color: white;
-      padding: 15px 30px;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: bold;
-      margin: 15px 0;
-      transition: all 0.3s ease;
-    }
-
-    .btn-whatsapp:hover {
-      background: #128C7E;
-      transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(18, 140, 126, 0.3);
-    }
-
-    /* Mejoras para el formulario de contacto */
-    .contact-form select {
-      width: 100%;
-      padding: 12px 10px;
-      margin-bottom: 18px;
-      border: 2px solid #e0e0e0;
-      border-radius: 12px;
-      font-size: 16px;
-      background: #fdfdfd;
-      transition: all 0.3s ease;
-    }
-
-    .contact-form select:focus {
-      border-color: #0a5c50;
-      box-shadow: 0 0 10px rgba(10, 92, 80, 0.25);
-      background: #fff;
-      outline: none;
-    }
-
-    /* Responsive para contacto */
-    @media (max-width: 900px) {
-      .contact-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-      }
-      
-      .contact-info, .contact-form {
-        padding: 20px;
-      }
-      
-      .social-links {
-        gap: 15px;
-      }
-      
-      .social-links img {
-        width: 40px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .contact-page {
-        padding: 10px;
-      }
-      
-      .info-item {
-        flex-direction: column;
-        text-align: center;
-        margin-bottom: 20px;
-      }
-      
-      .info-item i {
-        margin-right: 0;
-        margin-bottom: 10px;
-      }
-      
-      .hour-row {
-        flex-direction: column;
-        text-align: center;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Contacto Directo a Gmail</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 500px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: #4a6fc7;
+            color: white;
+            text-align: center;
+            padding: 25px 20px;
+        }
+        
+        .header h2 {
+            font-weight: 600;
+            font-size: 28px;
+        }
+        
+        .form-container {
+            padding: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #333;
+        }
+        
+        input, textarea {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border 0.3s;
+        }
+        
+        input:focus, textarea:focus {
+            border-color: #4a6fc7;
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(74, 111, 199, 0.2);
+        }
+        
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        button {
+            width: 100%;
+            padding: 16px;
+            background: #4a6fc7;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        button:hover {
+            background: #3b5aa6;
+        }
+        
+        .status-message {
+            text-align: center;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 8px;
+            display: none;
+        }
+        
+        .success {
+            background: #d4edda;
+            color: #155724;
+            display: block;
+        }
+        
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            display: block;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .instructions {
+            background: #f8f9fa;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #4a6fc7;
+        }
+        
+        .instructions h3 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .instructions ol {
+            padding-left: 20px;
+        }
+        
+        .instructions li {
+            margin-bottom: 8px;
+        }
+    </style>
 </head>
-<body class="page-contacto">
-
-   <header>
-    <nav class="navbar">
-      <div class="logo">
-        <img src="img/logo.png" alt="Mundo Viajero Logo">
-      </div>
-      <ul class="nav-links">
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="galeria.html">Galería</a></li>
-        <li><a href="servicios.html">Servicios</a></li>
-        <li><a href="about.html">Acerca de</a></li>
-        <li><a href="contáctanos.html" class="active">Contacto</a></li>
-        <li><a href="opiniones.html">Opiniones</a></li>
-      </ul>
-      <div class="menu-toggle">&#9776;</div>
-    </nav>
-  </header>
-
-   <section class="hero">
-    <h1 class="fade-in">Estamos Ubicados</h1>
-    <p class="fade-in">Encuéntranos en el corazón de Nicaragua. Estamos listos para recibirte y ayudarte a planear tu próxima aventura.</p>
-  </section>
-
-  <div class="contact-page">
-    <!-- Mensaje de agradecimiento (oculto inicialmente) -->
-    <div id="thankYouMessage" class="thank-you-message">
-      <h3><i class="fas fa-check-circle"></i> ¡Gracias por tu mensaje!</h3>
-      <p>Te contactaremos dentro de las próximas 24 horas.</p>
-    </div>
-    
-    <div class="contact-grid">
-      <!-- Formulario de contacto CORREGIDO -->
-      <div class="contact-form">
-        <h2><i class="fas fa-envelope"></i> Contáctanos</h2>
-        <form id="contactForm" action="https://formsubmit.co/nahoguevarar@gmail.com" method="POST">
-          <!-- Campos ocultos importantes para FormSubmit -->
-          <input type="hidden" name="_next" value="https://nahomy20.github.io/Mundo-Viajero/gracias.html">
-          <input type="hidden" name="_subject" value="Nuevo mensaje de Mundo Viajero Nicaragua">
-          <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_autoresponse" value="Gracias por contactar a Mundo Viajero Nicaragua. Hemos recibido tu mensaje y te responderemos pronto.">
-          
-          <label for="nombre">Nombre completo:</label>
-          <input type="text" id="nombre" name="name" placeholder="Tu nombre completo" required>
-          
-          <label for="email">Correo Electrónico:</label>
-          <input type="email" id="email" name="email" placeholder="tu.correo@ejemplo.com" required>
-          
-          <label for="telefono">Teléfono (opcional):</label>
-          <input type="tel" id="telefono" name="telefono" placeholder="+505 8888 8888">
-          
-          <label for="servicio">Servicio de interés:</label>
-          <select id="servicio" name="servicio">
-            <option value="">Selecciona una opción</option>
-            <option value="hospedaje">Hospedaje y Transporte</option>
-            <option value="aventura">Tours de Aventura</option>
-            <option value="nicas">Tours Nicas</option>
-            <option value="cultural">Turismo Cultural</option>
-            <option value="otros">Otros servicios</option>
-          </select>
-          
-          <label for="mensaje">Mensaje:</label>
-          <textarea id="mensaje" name="message" rows="5" placeholder="Cuéntanos cómo podemos ayudarte..." required></textarea>
-          
-          <button type="submit" id="submitBtn"><i class="fas fa-paper-plane"></i> Enviar mensaje</button>
-        </form>
-        
-        <!-- Indicador de carga -->
-        <div id="formLoading" class="form-loading">
-          <div class="spinner"></div>
-          <p>Enviando tu mensaje...</p>
-        </div>
-      </div>
-
-      <!-- Información de contacto -->
-      <div class="contact-info">
-        <h2><i class="fas fa-info-circle"></i> Información de Contacto</h2>
-        
-        <div class="info-item">
-          <i class="fas fa-map-marker-alt"></i>
-          <div>
-            <h4>Dirección</h4>
-            <p>Managua, Nicaragua<br>2 cuadras del lago</p>
-          </div>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>Formulario de Contacto</h2>
+            <p>Envíanos un mensaje y te contactaremos pronto</p>
         </div>
         
-        <div class="info-item">
-          <i class="fas fa-phone"></i>
-          <div>
-            <h4>Teléfono</h4>
-            <p>+505 8888 8888</p>
-          </div>
-        </div>
-        
-        <div class="info-item">
-          <i class="fas fa-envelope"></i>
-          <div>
-            <h4>Email</h4>
-            <p>merceditalopez659@gmail.com</p>
-          </div>
-        </div>
-        
-        <div class="business-hours">
-          <h3><i class="fas fa-clock"></i> Horario de atención</h3>
-          <div class="hour-row">
-            <span>Lunes - Viernes:</span>
-            <span>8:00 AM - 8:00 PM</span>
-          </div>
-          <div class="hour-row">
-            <span>Sábados:</span>
-            <span>9:00 AM - 6:00 PM</span>
-          </div>
-          <div class="hour-row">
-            <span>Domingos:</span>
-            <span>9:00 AM - 2:00 PM</span>
-          </div>
-        </div>
-        
-        <div class="emergency-contact">
-          <h3><i class="fas fa-life-ring"></i> Contacto de Emergencia</h3>
-          <p>Para asistencia inmediata durante tu viaje</p>
-          <span class="phone">+505 8888 8888</span>
-          <p>Disponible 24/7</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Mapa -->
-    <div align="center" style="margin: 40px 0;">
-      <h2><i class="fas fa-map-marked-alt"></i> Nuestra Ubicación</h2>
-      <div class="map-container fade-in">
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1984295.2462366645!2d-87.5!3d12.8654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDUyJzE1LjQiTiA4N8KwMzAnMjAuMCJX!5e0!3m2!1ses!2sni!4v1692548976684!5m2!1ses!2sni" 
-          width="100%" height="450" style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy">
-        </iframe>
-      </div>
-    </div>
-
-    <!-- Preguntas frecuentes de contacto -->
-    <div class="faq-contact">
-      <h2>¿Tienes dudas? Estas son las más frecuentes</h2>
-      <div class="cards">
-        <div class="card">
-          <h3><i class="fas fa-question-circle"></i> ¿Necesito reservar con anticipación?</h3>
-          <p>Recomendamos reservar al menos con 3 días de anticipación para garantizar disponibilidad.</p>
-        </div>
-        <div class="card">
-          <h3><i class="fas fa-money-bill-wave"></i> ¿Qué métodos de pago aceptan?</h3>
-          <p>Aceptamos efectivo, transferencias bancarias y tarjetas de crédito/débito.</p>
-        </div>
-        <div class="card">
-          <h3><i class="fas fa-user-clock"></i> ¿En cuánto tiempo responden?</h3>
-          <p>Normalmente respondemos en menos de 24 horas hábiles.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Redes sociales -->
-    <div class="social-section">
-      <h2>Síguenos en nuestras redes sociales</h2>
-      <p>Mantente actualizado con nuestras promociones y destinos</p>
-      
-      <div class="social-links">
-        <a href="https://www.facebook.com" target="_blank">
-          <img src="img/face.png" alt="Facebook" width="50">
-        </a>
-        <a href="https://www.instagram.com" target="_blank">
-          <img src="img/insta.png" alt="Instagram" width="50">
-        </a>
-        <a href="https://wa.me/50588888888" target="_blank">
-          <img src="img/Whatsa.png" alt="WhatsApp" width="50">
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <footer>
-    <p align="right">&nbsp;© 2025 Gracias por preferirnos atrévete a viajar con nosotros&nbsp;</p>
-    <p>Términos - Todos los derechos reservados</p>
-  </footer>
-
-  <script>
-    // Manejo del formulario con JavaScript
-    document.addEventListener('DOMContentLoaded', function() {
-      const contactForm = document.getElementById('contactForm');
-      const submitBtn = document.getElementById('submitBtn');
-      const formLoading = document.getElementById('formLoading');
-      const thankYouMessage = document.getElementById('thankYouMessage');
-      
-      // Verificar si se viene de un envío exitoso
-      const urlParams = new URLSearchParams(window.location.search);
-      if (urlParams.get('success') === 'true') {
-        thankYouMessage.style.display = 'block';
-        // Scroll hasta el mensaje
-        thankYouMessage.scrollIntoView({ behavior: 'smooth' });
-      }
-      
-      contactForm.addEventListener('submit', function(e) {
-        // Prevenir el envío normal para manejar con JavaScript
-        e.preventDefault();
-        
-        // Mostrar loading
-        submitBtn.style.display = 'none';
-        formLoading.style.display = 'block';
-        
-        // Crear FormData
-        const formData = new FormData(contactForm);
-        
-        // Enviar usando Fetch API
-        fetch(contactForm.action, {
-          method: 'POST',
-          body: formData,
-          headers: {
-            'Accept': 'application/json'
-          }
-        })
-        .then(response => {
-          if (response.ok) {
-            // Mostrar mensaje de éxito
-            thankYouMessage.style.display = 'block';
-            contactForm.reset();
+        <div class="form-container">
+            <!-- Reemplaza TU_EMAIL@GMAIL.COM con tu dirección real de Gmail -->
+            <form action="https://formsubmit.co/nahoguevarar@gmail.com" method="POST">
+                <!-- Campo de redirección después del envío -->
+                <input type="hidden" name="_next" value="https://nahomy20.github.io/Mundo-Viajero/gracias.html">
+                
+                <!-- Deshabilita el captcha -->
+                <input type="hidden" name="_captcha" value="false">
+                
+                <!-- Formato de respuesta -->
+                <input type="hidden" name="_template" value="table">
+                
+                <div class="form-group">
+                    <label for="name">Nombre completo</label>
+                    <input type="text" id="name" name="name" required placeholder="Tu nombre">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Correo electrónico</label>
+                    <input type="email" id="email" name="email" required placeholder="tu@email.com">
+                </div>
+                
+                <div class="form-group">
+                    <label for="subject">Asunto</label>
+                    <input type="text" id="subject" name="subject" required placeholder="Asunto del mensaje">
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Mensaje</label>
+                    <textarea id="message" name="message" required placeholder="Escribe tu mensaje aquí..."></textarea>
+                </div>
+                
+                <button type="submit">Enviar mensaje</button>
+            </form>
             
-            // Scroll hasta el mensaje
-            thankYouMessage.scrollIntoView({ behavior: 'smooth' });
-            
-            // Agregar parámetro a la URL sin recargar
-            window.history.replaceState({}, document.title, "?success=true");
-          } else {
-            alert('Error al enviar el formulario. Por favor, inténtalo de nuevo.');
-          }
-        })
-        .catch(error => {
-          alert('Error de conexión. Por favor, inténtalo de nuevo.');
-          console.error('Error:', error);
-        })
-        .finally(() => {
-          // Ocultar loading y mostrar botón again
-          formLoading.style.display = 'none';
-          submitBtn.style.display = 'block';
-        });
-      });
-    });
-  </script>
-
+            <div class="instructions">
+                <h3>Configuración necesaria:</h3>
+                <ol>
+                    <li>Reemplaza "TU_EMAIL@GMAIL.COM" en el código con tu dirección real de Gmail</li>
+                    <li>Crea una página "gracias.html" con un mensaje de confirmación</li>
+                    <li>Sube estos archivos a tu servidor web</li>
+                </ol>
+                <p><strong>Nota:</strong> FormSubmit es un servicio gratuito que envía los datos del formulario directamente a tu email sin necesidad de backend.</p>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>© 2023 - Todos los derechos reservados</p>
+        </div>
+    </div>
 </body>
 </html>
