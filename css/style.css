@@ -601,7 +601,7 @@ h1 {
 */
 .contact-form {
   max-width: 600px;
-  margin: 60px auto;
+  margin: 50px auto;
   padding: 30px;
   background: #ffffff;
   border-radius: 18px;
@@ -740,12 +740,6 @@ h1 {
 /* login button */
 .login button { margin-top:20px; width:100%; background:#22d3ee; color:#fff; border:none; border-radius:12px; padding:14px; font-size:1.1rem; }
 .login button:hover { background:#141414; transform: translateY(-2px); }
-
-/* ==========================================================
-   OPINIONES (unificado y sin duplicados)
-   ==========================================================
-*/
-
 
 /* ==========================================================
    FORMULARIO DE OPINIONES (Estilo simplificado)
@@ -1010,50 +1004,6 @@ footer p, footer div {
 /* ==========================================================
    SECCIÓN UBICACIÓN CON MAPA GRANDE
    ========================================================== */
-.ubicacion {
-  max-width: 700px;   /* antes 1100px → más pequeño */
-  margin: 50px auto;
-  padding: 20px;
-  background: #fff;
-  border-radius: 15px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-  text-align: center;
-}
-
-.ubicacion h2 {
-  font-size: 24px;
-  margin-bottom: 15px;
-  color: #0a5c50;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-}
-
-/* Contenedor del mapa */
-.map-container {
-  position: relative;
-  padding-bottom: 50%; /* antes 56.25% → ahora más bajito */
-  height: 0;
-  overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 5px 12px rgba(0,0,0,0.2);
-}
-
-.map-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-  border-radius: 12px;
-}
-/* Responsive para móviles */
-@media (max-width: 768px) {
-  .map-container {
-    height: 350px;
-  }
-}
 /* ==========================================================
    SECCIÓN DE SERVICIOS - CENTRADO
    ========================================================== */
