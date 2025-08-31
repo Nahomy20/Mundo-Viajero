@@ -288,50 +288,50 @@
     
     <div class="contact-grid">
       <!-- Formulario de contacto -->
-      <div class="contact-form">
-        <h2><i class="fas fa-envelope"></i> Contáctanos</h2>
-        <form action="https://formsubmit.co/nahoguevarar@gmail.com" method="POST">
-                <!-- Campo de redirección después del envío -->
-        <input type="hidden" name="_next" value="https://nahomy20.github.io/Mundo-Viajero/gracias.html">
-                
-          <!-- Campos ocultos importantes para FormSubmit -->
-          <input type="hidden" name="_subject" value="Nuevo mensaje de Mundo Viajero">
-          <input type="hidden" name="_template" value="basic">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_next" value="?success=true">
-          <input type="hidden" name="_autoresponse" value="Gracias por contactar a Mundo Viajero Nicaragua. Hemos recibido tu mensaje y te responderemos pronto.">
-          
-          <label for="nombre">Nombre completo:</label>
-          <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required>
-          
-          <label for="email">Correo Electrónico:</label>
-          <input type="email" id="email" name="email" placeholder="tu.correo@ejemplo.com" required>
-          
-          <label for="telefono">Teléfono (opcional):</label>
-          <input type="tel" id="telefono" name="telefono" placeholder="+505 8888 8888">
-          
-          <label for="servicio">Servicio de interés:</label>
-          <select id="servicio" name="servicio">
-            <option value="">Selecciona una opción</option>
-            <option value="hospedaje">Hospedaje y Transporte</option>
-            <option value="aventura">Tours de Aventura</option>
-            <option value="nicas">Tours Nicas</option>
-            <option value="cultural">Turismo Cultural</option>
-            <option value="otros">Otros servicios</option>
-          </select>
-          
-          <label for="mensaje">Mensaje:</label>
-          <textarea id="mensaje" name="mensaje" rows="5" placeholder="Cuéntanos cómo podemos ayudarte..." required></textarea>
-          
-          <button type="submit" id="submitBtn"><i class="fas fa-paper-plane"></i> Enviar mensaje</button>
-        </form>
-        
-        <!-- Indicador de carga -->
-        <div id="formLoading" class="form-loading">
-          <div class="spinner"></div>
-          <p>Enviando tu mensaje...</p>
-        </div>
-      </div>
+
+     <div class="contact-form">
+  <h2><i class="fas fa-envelope"></i> Contáctanos</h2>
+  <form action="https://formsubmit.co/nahoguevarar@gmail.com" method="POST">
+    
+    <!-- Campos ocultos importantes para FormSubmit -->
+    <input type="hidden" name="_subject" value="Nuevo mensaje de Mundo Viajero">
+    <input type="hidden" name="_template" value="basic">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_next" value="https://nahomy20.github.io/Mundo-Viajero/gracias.html">
+    <input type="hidden" name="_autoresponse" value="Gracias por contactar a Mundo Viajero Nicaragua. Hemos recibido tu mensaje y te responderemos pronto.">
+    
+    <label for="nombre">Nombre completo:</label>
+    <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required>
+    
+    <label for="email">Correo Electrónico:</label>
+    <input type="email" id="email" name="email" placeholder="tu.correo@ejemplo.com" required>
+    
+    <label for="telefono">Teléfono (opcional):</label>
+    <input type="tel" id="telefono" name="telefono" placeholder="+505 8888 8888">
+    
+    <label for="servicio">Servicio de interés:</label>
+    <select id="servicio" name="servicio">
+      <option value="">Selecciona una opción</option>
+      <option value="hospedaje">Hospedaje y Transporte</option>
+      <option value="aventura">Tours de Aventura</option>
+      <option value="nicas">Tours Nicas</option>
+      <option value="cultural">Turismo Cultural</option>
+      <option value="otros">Otros servicios</option>
+    </select>
+    
+    <label for="mensaje">Mensaje:</label>
+    <textarea id="mensaje" name="mensaje" rows="5" placeholder="Cuéntanos cómo podemos ayudarte..." required></textarea>
+    
+    <button type="submit" id="submitBtn"><i class="fas fa-paper-plane"></i> Enviar mensaje</button>
+  </form>
+  
+  <!-- Indicador de carga -->
+  <div id="formLoading" class="form-loading">
+    <div class="spinner"></div>
+    <p>Enviando tu mensaje...</p>
+  </div>
+</div>
+
 
       <!-- Información de contacto -->
       <div class="contact-info">
