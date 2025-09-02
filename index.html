@@ -53,7 +53,7 @@
 
   <!-- HERO -->
   <section class="hero">
-<h1 class="fade-in hero-title">✈️Bienvenidos a Mundo Viajero </h1>
+<h1 class="fade-in hero-title">Bienvenidos a Mundo Viajero </h1>
 
   </section>
 
@@ -97,7 +97,8 @@
       <img src="img/granada.jpg" alt="Paquete Granada" class="card-img clickable-img">
       <h3>Paquete Granada</h3>
       <p>Tour por la ciudad + Isletas en lancha.</p>
-      <span>Desde $35</span>
+      <span>Desde $150</span>
+      <a href="https://wa.me/50586184641?text=Quiero%20reservar,%20dame%20informacion,%20muchas%20gracias." target="_blank" class="btn-reservar">Reservar Tour</a>
     </div>
 
     <!-- San Juan del Sur -->
@@ -105,7 +106,8 @@
       <img src="img/sur.webp" alt="San Juan del Sur" class="card-img clickable-img">
       <h3>San Juan del Sur</h3>
       <p>3 días de playa + transporte incluido.</p>
-      <span>Desde $100</span>
+      <span>Desde $500</span>
+      <a href="https://wa.me/50586184641?text=Quiero%20reservar,%20dame%20informacion,%20muchas%20gracias." target="_blank" class="btn-reservar">Reservar Tour</a>
     </div>
 
     <!-- Volcán Masaya -->
@@ -113,7 +115,8 @@
       <img src="img/masaya.jpeg" alt="Volcán Masaya" class="card-img clickable-img">
       <h3>Volcán Masaya</h3>
       <p>Excursión nocturna al cráter activo.</p>
-      <span>Desde $45</span>
+      <span>Desde $100</span>
+      <a href="https://wa.me/50586184641?text=Quiero%20reservar,%20dame%20informacion,%20muchas%20gracias." target="_blank" class="btn-reservar">Reservar Tour</a>
     </div>
 
   </div>
@@ -279,7 +282,6 @@ faqButtons.forEach(button => {
 
   <div class="cards">
     <div class="card">
-      <a href="servicios.html" target="_blank"></a>
       <img src="img/nica.jpg" alt="Camiseta">
       <h3>Camisetas con diseños exclusivos</h3>
       <p class="precio">$15.00</p>
@@ -287,7 +289,6 @@ faqButtons.forEach(button => {
     </div>
 
     <div class="card">
-      <a href="servicios.html" target="_blank"></a>
       <img src="img/gui.jpg" alt="Artesanía">
       <h3>Artesanías hechas a mano</h3>
       <p class="precio">$25.00</p>
@@ -295,7 +296,6 @@ faqButtons.forEach(button => {
     </div>
 
     <div class="card">
-       <a href="servicios.html" target="_blank"></a>
       <img src="img/1.jpg" alt="Taza">
       <h3>Tazas personalizadas</h3>
       <p class="precio">$10.00</p>
@@ -303,12 +303,150 @@ faqButtons.forEach(button => {
     </div>
   </div>
 
-  <div class="carrito">
-    <h3>🛒 Carrito</h3>
-    <ul id="listaCarrito"></ul>
-    <p>Total: $<span id="totalCarrito">0.00</span></p>
-    <button onclick="enviarFactura()">📧 Enviar Factura</button>
+<div class="carrito">
+  <h3>🛒 Carrito</h3>
+  <ul id="listaCarrito"></ul>
+  <p>Total: $<span id="totalCarrito">0.00</span></p>
+  <button onclick="enviarFactura()" class="btn-factura">🧾 Descargar Factura</button>
+
+  <style>
+    .btn-factura {
+      background-color: #d6bd69;
+      color: rgb(26, 24, 24);
+      font-size: 16px;
+      font-weight: bold;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+
+    .btn-factura:hover {
+      background-color: #45a049;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 10px rgba(0,0,0,0.15);
+    }
+
+    .btn-factura:active {
+      transform: translateY(0);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    /* estilo productos carrito */
+    #listaCarrito li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 5px 0;
+      padding: 5px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .btn-eliminar {
+      background: none;
+      border: none;
+      color: red;
+      font-size: 20px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .btn-eliminar:hover {
+      transform: scale(1.2);
+    }
+  </style>
+</div>
+
+<!-- Importamos jsPDF -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<script>
+  let carrito = [];
+
+  function añadirAlCarrito(producto, precio) {
+    carrito.push({ id: Date.now(), producto, precio });
+    actualizarCarrito();
+  }
+
+  function actualizarCarrito() {
+    const lista = document.getElementById("listaCarrito");
+    const total = document.getElementById("totalCarrito");
+    lista.innerHTML = "";
+
+    let suma = 0;
+    carrito.forEach((item) => {
+      let li = document.createElement("li");
+      li.innerHTML = `
+        <span>${item.producto} - $${item.precio.toFixed(2)}</span>
+        <button class="btn-eliminar" onclick="eliminarDelCarrito(${item.id})">🗑️</button>
+      `;
+      lista.appendChild(li);
+      suma += item.precio;
+    });
+
+    total.textContent = suma.toFixed(2);
+  }
+
+  function eliminarDelCarrito(id) {
+    carrito = carrito.filter(item => item.id !== id);
+    actualizarCarrito();
+  }
+
+<!-- Modal alerta carrito vacío -->
+<div id="modalAlerta">
+  <div class="modal-content">
+    <h2>😢 Carrito Vacío</h2>
+    <p>No puedo generarte factura, el carrito está vacío.</p>
+    <button onclick="cerrarModal()">Cerrar</button>
   </div>
+</div>
+
+
+  function enviarFactura() {
+    if (carrito.length === 0) {
+    
+      return;
+    }
+
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+
+    // Encabezado
+    doc.setFontSize(18);
+    doc.text("Factura de Compra", 70, 20);
+
+    doc.setFontSize(12);
+    doc.text("Gracias por tu compra en Souvenirs Nicaragua", 40, 30);
+    doc.text("Fecha: " + new Date().toLocaleDateString(), 40, 40);
+
+    // Tabla
+    let y = 60;
+    doc.text("Producto", 20, y);
+    doc.text("Precio", 160, y);
+    y += 10;
+
+    carrito.forEach(item => {
+      doc.text(item.producto, 20, y);
+      doc.text("$" + item.precio.toFixed(2), 160, y);
+      y += 10;
+    });
+
+    // Total
+    y += 10;
+    let total = carrito.reduce((acc, item) => acc + item.precio, 0);
+    doc.setFontSize(14);
+    doc.text("Total: $" + total.toFixed(2), 20, y);
+
+    doc.save("Factura.pdf");
+  }
+</script>
+
+
 </section>
 
 <!-- 🎉 EVENTOS Y FESTIVALES -->

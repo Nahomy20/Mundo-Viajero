@@ -1314,12 +1314,13 @@ body.page-servicios .hero p {
 
 .carrito {
   margin-top: 30px;
-  background: #f7f7f7;
+  background: #fff; /* fondo blanco para destacar */
   padding: 20px;
   border-radius: 15px;
   max-width: 400px;
   margin-left: auto;
   margin-right: auto;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
 .carrito ul {
@@ -1328,10 +1329,28 @@ body.page-servicios .hero p {
   margin: 0 0 10px 0;
 }
 
-.carrito li {
+#listaCarrito li {   /* corregido: mismo id que en HTML */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 8px 0;
   border-bottom: 1px solid #ddd;
 }
+
+.eliminar-item {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: red;
+  transition: transform 0.2s;
+}
+
+.eliminar-item:hover {
+  transform: scale(1.2);
+}
+
+
 
 
 .eventos .cards {
@@ -1461,6 +1480,50 @@ body.page-servicios .hero p {
 
 .about-section ul li {
   margin-bottom: 10px;
+};
+
+
+/* Contenedor de cada opinión */
+.opinion-item {
+    background: #fff;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 10px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
 }
 
+/* Encabezado de la opinión: usuario + estrellas + botón eliminar */
+.opinion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
+/* Información del usuario + estrellas */
+.usuario-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Avatar */
+.usuario-info .avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+
+/* Botón eliminar */
+.eliminar-opinion {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: #777;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.eliminar-opinion:hover {
+    color: #e63946;
+    transform: scale(1.2);
+}

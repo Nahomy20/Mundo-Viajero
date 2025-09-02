@@ -27,6 +27,7 @@
         <li><a href="about.html">Acerca de</a></li>
          <li><a href="contáctanos.html">Contáctanos</a></li>
         <li><a href="opiniones.html">Opiniones</a></li>
+         <li><a href="login.html">Cerrar Sesión</a></li>
       </ul>
       <div class="menu-toggle">&#9776;</div>
     </nav>
@@ -38,23 +39,74 @@
      <!-- SERVICIOS -->
 <section class="services">
 
-  <!-- Hospedaje -->
-  <div class="service-card fade-in">
-    <h3><i class="fa-solid fa-hotel"></i> Hospedaje & Transporte</h3>
-    <p>Ofrecemos hospedaje cómodo y transporte seguro para tu viaje.</p>
-    <div class="gallery-container">
-      <div class="gallery-item">
-       <img src="img/dormitorio.jpg" alt="Habitación">
-        <div class="overlay">Confort y descanso</div>
-      </div>
-      <div class="gallery-item">
-        <img src="img/hospedaje.jpg" alt="Recepción hotel">
-        <div class="overlay">Atención personalizada</div>
-      </div>
-      <div class="gallery-item">
-        <img src="img/Transporte_Turismo-1-1024x597.jpg" alt="Bus turístico">
-        <div class="overlay">Transporte seguro</div>
-      </div>
+<!-- Hospedaje -->
+<div class="service-card fade-in">
+  <h3><i class="fa-solid fa-hotel"></i> Hospedaje & Transporte</h3>
+  <p>Ofrecemos hospedaje cómodo y transporte seguro para tu viaje.</p>
+  
+  <div class="gallery-container">
+    <div class="gallery-item">
+      <img src="img/dormitorio.jpg" alt="Habitación">
+      <div class="overlay">Confort y descanso</div>
+    </div>
+    <div class="gallery-item">
+      <img src="img/hospedaje.jpg" alt="Recepción hotel">
+      <div class="overlay">Atención personalizada</div>
+    </div>
+    <div class="gallery-item">
+      <img src="img/Transporte_Turismo-1-1024x597.jpg" alt="Bus turístico">
+      <div class="overlay">Transporte seguro</div>
+    </div>
+  </div>
+
+  <!-- Botón de WhatsApp -->
+  <a 
+    href="https://wa.me/50586184641?text=Hola,%20me%20podrías%20dar%20más%20información%20por%20favor" 
+    target="_blank" 
+    class="whatsapp-button"
+  >
+    <i class="fa-brands fa-whatsapp"></i> Contáctanos por WhatsApp
+  </a>
+</div>
+
+<!-- CSS para estilizar el botón -->
+<style>
+  .whatsapp-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #25D366;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 15px;
+    transition: background-color 0.3s, transform 0.2s;
+    font-size: 16px;
+  }
+
+  .whatsapp-button:hover {
+    background-color: #1ebe57;
+    transform: scale(1.05);
+  }
+
+  .whatsapp-button i {
+    margin-right: 10px;
+    font-size: 20px;
+  }
+
+  /* Opcional: animación de fade-in para el botón */
+  .fade-in {
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+  }
+
+  @keyframes fadeIn {
+    to { opacity: 1; }
+  }
+</style>
+
     </div>
   </div>
 
@@ -64,18 +116,67 @@
     <p>Explora volcanes, montañas y senderos naturales con guías expertos.</p>
     <div class="gallery-container">
       <div class="gallery-item">
-        <a href="servicios.html"> <img src="img/Aventura.jpg" alt="Aventura"></a>
+       <img src="img/Aventura.jpg" alt="Aventura">
         <div class="overlay">Adrenalina pura</div>
       </div>
       <div class="gallery-item">
-        <a href="servicios.html"><img src="img/aire.jpg" alt="Deportes extremos"></a>
+       <img src="img/aire.jpg" alt="Deportes extremos">
         <img src="img/aire.jpg" alt="Deportes extremos">
         <div class="overlay">Nuevas experiencias</div>
       </div>
       <div class="gallery-item">
-        <a href="servicios.html"><img src="img/cerro n.jpg" alt="Cerro Negro"></a>
+        <img src="img/cerro n.jpg" alt="Cerro Negro">
         <div class="overlay">Sandboarding en Cerro Negro</div>
       </div>
+<!-- Botón de WhatsApp -->
+<!-- Botón de WhatsApp -->
+  <a 
+    href="https://wa.me/50586184641?text=Hola,%20me%20podrías%20dar%20más%20información%20por%20favor" 
+    target="_blank" 
+    class="whatsapp-button"
+  >
+    <i class="fa-brands fa-whatsapp"></i> Contáctanos por WhatsApp
+  </a>
+</div>
+
+<!-- CSS para estilizar el botón -->
+<style>
+  .whatsapp-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #25D366;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 15px;
+    transition: background-color 0.3s, transform 0.2s;
+    font-size: 16px;
+  }
+
+  .whatsapp-button:hover {
+    background-color: #1ebe57;
+    transform: scale(1.05);
+  }
+
+  .whatsapp-button i {
+    margin-right: 10px;
+    font-size: 20px;
+  }
+
+  /* Opcional: animación de fade-in para el botón */
+  .fade-in {
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+  }
+
+  @keyframes fadeIn {
+    to { opacity: 1; }
+  }
+</style>
+
     </div>
   </div>
 
@@ -96,28 +197,86 @@
         <img src="img/Laguna Apoyeque-1.jpg" alt="Laguna Apoyo">
         <div class="overlay">Laguna de Apoyo</div>
       </div>
+<!-- Botón de WhatsApp -->
+  <a 
+    href="https://wa.me/50586184641?text=Hola,%20me%20podrías%20dar%20más%20información%20por%20favor" 
+    target="_blank" 
+    class="whatsapp-button"
+  >
+    <i class="fa-brands fa-whatsapp"></i> Contáctanos por WhatsApp
+  </a>
+</div>
+
+<!-- CSS para estilizar el botón -->
+<style>
+  .whatsapp-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #25D366;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 15px;
+    transition: background-color 0.3s, transform 0.2s;
+    font-size: 16px;
+  }
+
+  .whatsapp-button:hover {
+    background-color: #1ebe57;
+    transform: scale(1.05);
+  }
+
+  .whatsapp-button i {
+    margin-right: 10px;
+    font-size: 20px;
+  }
+
+  /* Opcional: animación de fade-in para el botón */
+  .fade-in {
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+  }
+
+  @keyframes fadeIn {
+    to { opacity: 1; }
+  }
+</style>
     </div>
   </div>
 
-  <!-- Turismo Cultural -->
-  <div class="service-card fade-in">
-    <h3><i class="fa-solid fa-masks-theater"></i> Turismo Cultural</h3>
-    <p>Conoce pueblos tradicionales, gastronomía local y festividades únicas.</p>
-    <div class="gallery-container">
-      <div class="gallery-item">
+<!-- Turismo Cultural -->
+<div class="service-card fade-in">
+  <h3><i class="fa-solid fa-masks-theater"></i> Turismo Cultural</h3>
+  <p>Conoce pueblos tradicionales, gastronomía local y festividades únicas.</p>
+  <div class="gallery-container">
+    
+    <div class="gallery-item">
+      <a href="https://www.mapanicaragua.com/gastronomia/" target="_blank">
         <img src="img/tamales.jpg" alt="Gastronomía">
-        <div class="overlay">Sabores nicas</div>
-      </div>
-      <div class="gallery-item">
+        <div class="overlay">Sabores nicas</div> 
+      </a>
+    </div>
+    
+    <div class="gallery-item">
+      <a href="https://es.wikipedia.org/wiki/Masaya" target="_blank">
         <img src="img/Orgullo_de_mi_pais_Masaya-56.jpg" alt="Cultura Masaya">
         <div class="overlay">Tradiciones vivas</div>
-      </div>
-      <div class="gallery-item">
+      </a>
+    </div>
+    
+    <div class="gallery-item">
+      <a href="https://www.google.com/maps/place/Miramar/@12.1702601,-86.7626166,15z/data=!3m1!4b1!4m6!3m5!1s0x8f712e408997c221:0x515cbe6da1207c5d!8m2!3d12.1702603!4d-86.7626166!16s%2Fg%2F1hm3mvrmw?entry=ttu&g_ep=EgoyMDI1MDgyNS4wIKXMDSoASAFQAw%3D%3D" target="_blank">
         <img src="img/miramar-surf-camp.jpg" alt="Playa">
         <div class="overlay">Playa Miramar</div>
-      </div>
+      </a>
     </div>
+    
   </div>
+</div>
+
   <!-- Turismo recuerdos -->
   <div class="service-card fade-in">
     <h3><i class="fa-solid fa-masks-theater"></i> Turismo Cultural</h3>
