@@ -152,15 +152,24 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ========================
-  // OPINIONES DE VIAJEROS
-  // ========================
-  // ========================
-// OPINIONES DE VIAJEROS (CON BOTÓN ELIMINAR)
+ 
+// Función para mostrar opiniones
 // ========================
+// OPINIONES DE VIAJEROS (CORREGIDO - BOTÓN A LA DERECHA)
+// ========================
+
 const opinionForm = document.getElementById("opinionForm");
 const listaOpiniones = document.getElementById("listaOpiniones");
+const confirmModal = document.getElementById("confirmModal");
+const cancelDelete = document.getElementById("cancelDelete");
+const confirmDelete = document.getElementById("confirmDelete");
 
+let opinionToDelete = null;
+
+// Cargar opiniones al iniciar
+mostrarOpiniones();
+
+// Evento para enviar opinión
 if (opinionForm && listaOpiniones) {
     opinionForm.addEventListener("submit", function (e) {
         e.preventDefault();
@@ -177,49 +186,120 @@ if (opinionForm && listaOpiniones) {
         let usuario = localStorage.getItem("usuarioLogueado") || "Invitado";
 
         let opiniones = JSON.parse(localStorage.getItem("opiniones")) || [];
-        opiniones.push({ usuario: usuario, rating: estrellas, comentario: comentario });
+        opiniones.push({ 
+            usuario: usuario, 
+            rating: estrellas, 
+            comentario: comentario,
+            fecha: new Date().toISOString()
+        });
         localStorage.setItem("opiniones", JSON.stringify(opiniones));
 
         mostrarOpiniones();
         opinionForm.reset();
     });
+}
 
-    function mostrarOpiniones() {
-        listaOpiniones.innerHTML = "";
-        let opiniones = JSON.parse(localStorage.getItem("opiniones")) || [];
+// Función para mostrar opiniones
+// Función para mostrar opiniones (VERSIÓN CON AVATAR)
+function mostrarOpiniones() {
+    if (!listaOpiniones) return;
+    
+    listaOpiniones.innerHTML = "";
+    let opiniones = JSON.parse(localStorage.getItem("opiniones")) || [];
 
-        opiniones.forEach((op, index) => {
-            let card = document.createElement("div");
-            card.classList.add("opinion-card");
-            card.innerHTML = `
-                <div class="opinion-avatar">
-                    <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="usuario">
-                </div>
-                <div class="opinion-content">
-                    <h4>${op.usuario}</h4>
-                    <div class="opinion-stars">${"★".repeat(op.rating)}${"☆".repeat(5 - op.rating)}</div>
-                    <p>${op.comentario}</p>
-                    <button class="btn-eliminar" title="Eliminar opinión">🗑️</button>
-                </div>
-            `;
+    // Ordenar por fecha (más recientes primero)
+    opiniones.sort((a, b) => new Date(b.fecha) - new Date(a.fecha));
 
-            // Evento para eliminar la opinión
-            card.querySelector(".btn-eliminar").addEventListener("click", () => {
-                eliminarOpinion(index);
+    if (opiniones.length === 0) {
+        listaOpiniones.innerHTML = '<p style="text-align:center;color:#777;padding:20px;">No hay opiniones aún. ¡Sé el primero en comentar!</p>';
+        return;
+    }
+
+    opiniones.forEach((op, index) => {
+        let card = document.createElement("div");
+        card.classList.add("opinion-item");
+        
+        // Formatear fecha (con validación para Invalid Date)
+        let fechaFormateada;
+        try {
+            fechaFormateada = new Date(op.fecha).toLocaleDateString('es-ES', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
             });
+        } catch (e) {
+            fechaFormateada = "Fecha no disponible";
+        }
+        
+        // ✅ ESTRUCTURA CON AVATAR (como tenías antes)
+        card.innerHTML = `
+            <div class="opinion-header">
+                <div class="usuario-info">
+                    <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="usuario" class="avatar">
+                    <div class="usuario-y-estrellas">
+                        <h4>${op.usuario}</h4>
+                        <div class="rating-stars">${"★".repeat(op.rating)}${"☆".repeat(5 - op.rating)}</div>
+                    </div>
+                </div>
+                <button class="eliminar-opinion" title="Eliminar opinión">🗑️</button>
+            </div>
+            <div class="opinion-content">
+                <p>${op.comentario}</p>
+            </div>
+            <div class="opinion-date">${fechaFormateada}</div>
+        `;
 
-            listaOpiniones.appendChild(card);
+        // Evento para eliminar
+        card.querySelector(".eliminar-opinion").addEventListener("click", () => {
+            mostrarModalConfirmacion(index);
         });
-    }
 
-    function eliminarOpinion(index) {
-        let opiniones = JSON.parse(localStorage.getItem("opiniones")) || [];
-        opiniones.splice(index, 1); // Elimina solo la seleccionada
-        localStorage.setItem("opiniones", JSON.stringify(opiniones));
-        mostrarOpiniones(); // Recarga la lista actualizada
-    }
+        listaOpiniones.appendChild(card);
+    });
+}
+        
 
+// Mostrar modal de confirmación
+function mostrarModalConfirmacion(index) {
+    opinionToDelete = index;
+    if (confirmModal) confirmModal.style.display = "flex";
+}
+
+// Confirmar eliminación
+if (confirmDelete) {
+    confirmDelete.addEventListener("click", () => {
+        if (opinionToDelete !== null) {
+            eliminarOpinion(opinionToDelete);
+            if (confirmModal) confirmModal.style.display = "none";
+            opinionToDelete = null;
+        }
+    });
+}
+
+// Cancelar eliminación
+if (cancelDelete) {
+    cancelDelete.addEventListener("click", () => {
+        if (confirmModal) confirmModal.style.display = "none";
+        opinionToDelete = null;
+    });
+}
+
+// Función para eliminar opinión
+function eliminarOpinion(index) {
+    let opiniones = JSON.parse(localStorage.getItem("opiniones")) || [];
+    opiniones.splice(index, 1);
+    localStorage.setItem("opiniones", JSON.stringify(opiniones));
     mostrarOpiniones();
+}
+
+// Cerrar modal al hacer clic fuera del contenido
+if (confirmModal) {
+    confirmModal.addEventListener("click", (e) => {
+        if (e.target === confirmModal) {
+            confirmModal.style.display = "none";
+            opinionToDelete = null;
+        }
+    });
 }
 
 

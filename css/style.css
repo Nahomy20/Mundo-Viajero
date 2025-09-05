@@ -1484,46 +1484,151 @@ body.page-servicios .hero p {
 
 
 /* Contenedor de cada opinión */
-.opinion-item {
+/* ==================== */
+/* ESTILOS PARA OPINIONES - MEJORADO */
+/* ==================== */
+
+/* ========================================== */
+/* ESTILOS ESPECÍFICOS PARA OPINIONES - CORREGIDO */
+/* ========================================== */
+
+body.page-opiniones .opinion-item {
+    position: relative;
     background: #fff;
-    padding: 12px;
-    margin: 10px 0;
-    border-radius: 10px;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border: 1px solid #eaeaea;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Encabezado de la opinión: usuario + estrellas + botón eliminar */
-.opinion-header {
+body.page-opiniones .opinion-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* ENCABEZADO CON BOTÓN A LA DERECHA - CORREGIDO */
+body.page-opiniones .opinion-header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
+    margin-bottom: 12px;
+    position: relative;
 }
 
-/* Información del usuario + estrellas */
-.usuario-info {
+/* CONTENEDOR DE USUARIO Y ESTRELLAS */
+body.page-opiniones .usuario-y-estrellas {
     display: flex;
-    align-items: center;
-    gap: 8px;
+    flex-direction: column;
+    gap: 5px;
+    flex: 1;
+    margin-right: 50px;
 }
 
-/* Avatar */
-.usuario-info .avatar {
+/* BOTÓN ELIMINAR - POSICIÓN ABSOLUTA EN ESQUINA SUPERIOR DERECHA */
+body.page-opiniones .eliminar-opinion {
+    position: absolute !important;
+    top: 5px !important;
+    right: 5px !important;
+    background: rgba(255, 77, 79, 0.1);
+    border: 1px solid #4574cd;
+    border-radius: 6px;
     width: 35px;
     height: 35px;
-    border-radius: 50%;
-}
-
-/* Botón eliminar */
-.eliminar-opinion {
-    background: transparent;
-    border: none;
     cursor: pointer;
-    font-size: 20px;
-    color: #777;
-    transition: color 0.2s ease, transform 0.2s ease;
+    color: #4574cd;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
 }
 
-.eliminar-opinion:hover {
-    color: #e63946;
-    transform: scale(1.2);
+body.page-opiniones .eliminar-opinion:hover {
+    background: #64e3d2;
+    color: white;
+    transform: scale(1.1);
+}
+
+/* NOMBRE DE USUARIO */
+body.page-opiniones .usuario-info h4 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+/* AVATAR DE USUARIO */
+body.page-opiniones .usuario-info .avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #e0e0e0;
+}
+
+/* ESTRELLAS DE CALIFICACIÓN */
+body.page-opiniones .rating-stars {
+    color: #ffc107;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+}
+
+/* CONTENIDO DE LA OPINIÓN */
+body.page-opiniones .opinion-content {
+    margin: 10px 0;
+}
+
+body.page-opiniones .opinion-content p {
+    margin: 0;
+    line-height: 1.6;
+    color: #555;
+    font-size: 1rem;
+}
+
+/* FECHA */
+body.page-opiniones .opinion-date {
+    color: #888;
+    font-size: 0.85rem;
+    margin-top: 10px;
+    font-style: italic;
+}
+
+/* ==================== */
+/* RESPONSIVE */
+/* ==================== */
+@media (max-width: 768px) {
+    body.page-opiniones .opinion-item {
+        padding: 15px;
+    }
+    
+    body.page-opiniones .eliminar-opinion {
+        top: 10px !important;
+        right: 10px !important;
+        width: 30px;
+        height: 30px;
+    }
+    
+    body.page-opiniones .usuario-y-estrellas {
+        margin-right: 40px;
+    }
+}
+
+/* ESTADO VACÍO */
+body.page-opiniones .no-opiniones {
+    text-align: center;
+    padding: 40px 20px;
+    color: #777;
+}
+
+body.page-opiniones .no-opiniones i {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    display: block;
+    color: #ddd;
+}
+
+body.page-opiniones .no-opiniones p {
+    font-size: 1.1rem;
+    margin: 0;
 }
