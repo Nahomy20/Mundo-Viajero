@@ -1593,6 +1593,18 @@ body.page-opiniones .opinion-date {
     margin-top: 10px;
     font-style: italic;
 }
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #12a6aee1; /* Este es el código que crea la transparencia */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Asegura que el modal esté encima de todo */
+}
 
 /* ==================== */
 /* RESPONSIVE */
@@ -1631,4 +1643,13 @@ body.page-opiniones .no-opiniones i {
 body.page-opiniones .no-opiniones p {
     font-size: 1.1rem;
     margin: 0;
+}
+.modal-btn.cancel:hover {
+    background-color: #1f5dc6cc; /* Un gris un poco más oscuro al pasar el mouse */
+    
+    border-color: #bbb; /* Borde un poco más oscuro */
+}
+
+.modal-btn.confirm:hover {
+    background-color: #1f5dc6cc; /* Un rojo un poco más oscuro al pasar el mouse */
 }
